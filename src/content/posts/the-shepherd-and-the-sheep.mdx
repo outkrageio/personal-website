@@ -16,11 +16,11 @@ I shepherd it.
 
 ## The Overnight Shift
 
-There was no gradual transition. No gentle slope from "AI-assisted coding" to whatever this is. No thought-leadership blog post prepared me for the whiplash. One day I was a programmer. The next I was something else entirely — something we don't have a word for yet, though I'm sure someone on LinkedIn has already coined one and trademarked it.
+There was no gradual transition. No gentle slope from "AI-assisted coding" to whatever this is. No thought-leadership blog post prepared me for the whiplash. One day I was a programmer. The next I was something else entirely. Something we don't have a word for yet, though I'm sure someone on LinkedIn has already coined one and trademarked it.
 
-The catalyst was specific: Claude Code paired with the Opus 4.6 model. Not "AI in general." Not a vague wave of the hand toward large language models. This specific tool, at this specific level of capability, crossed a threshold. The code it produces isn't just syntactically correct. It's *good*. It understands architecture. It reasons about edge cases. It makes judgment calls I agree with — which is frankly a higher bar than some of my past coworkers cleared.
+The catalyst was specific: Claude Code paired with the Opus 4.6 model. Not "AI in general." Not a vague wave of the hand toward large language models. This specific tool, at this specific level of capability, crossed a threshold. The code it produces isn't just syntactically correct. It's *good*. It understands architecture. It reasons about edge cases. It makes judgment calls I agree with, which is frankly a higher bar than some of my past coworkers cleared.
 
-When the output of a machine becomes indistinguishable from the output of a skilled engineer — and arrives in seconds rather than hours — everything downstream has to change. And it has to change fast. The machine, unfortunately, did not consult our organizational change management process before doing this.
+When the output of a machine becomes indistinguishable from the output of a skilled engineer, and arrives in seconds rather than hours, everything downstream has to change. And it has to change fast. The machine, unfortunately, did not consult our organizational change management process before doing this.
 
 ## Code as Implementation Detail
 
@@ -28,21 +28,21 @@ Here's the shift that matters: code is no longer the artifact. It's the exhaust.
 
 For decades, the central act of software engineering was *writing code*. The code was the thing. We reviewed it line by line. We argued about it in pull requests. We measured ourselves by it. Our interviews tested whether you could produce it under pressure on a whiteboard while a stranger watched you sweat. Very normal stuff.
 
-Now the code just... appears. The artifact that matters is the *intent* — the specification, the direction, the constraints you articulate to the agent that produces the code on your behalf. The code itself is an implementation detail, like the machine code your compiler emits. Important that it's correct. Not important that a human wrote it by hand.
+Now the code just... appears. The artifact that matters is the *intent*. The specification, the direction, the constraints you articulate to the agent that produces the code on your behalf. The code itself is an implementation detail, like the machine code your compiler emits. Important that it's correct. Not important that a human wrote it by hand.
 
-This is a profound inversion. Most of us spent years — decades, in some cases — learning to be great at the part that just became trivial. Cool. Love that for us.
+This is a profound inversion. Most of us spent years, decades in some cases, learning to be great at the part that just became trivial. Cool. Love that for us.
 
 ## Life as a Shepherd
 
 My days look nothing like they did a year ago.
 
-I wake up and I think about problems, not solutions. I think about *what* needs to exist, not *how* to build it. I spend my mornings defining scope, writing precise descriptions of behavior, and breaking work into chunks that an agent can execute cleanly. I spend my afternoons reviewing the output — not line by line like a code review, but structurally, asking whether the system behaves correctly, whether the boundaries are right, whether the thing that was built matches the thing that was needed.
+I wake up and I think about problems, not solutions. I think about *what* needs to exist, not *how* to build it. I spend my mornings defining scope, writing precise descriptions of behavior, and breaking work into chunks that an agent can execute cleanly. I spend my afternoons reviewing the output. Not line by line like a code review, but structurally. Does the system behave correctly? Are the boundaries right? Does the thing that was built match the thing that was needed?
 
 I am a shepherd. The coding agents are my flock. I don't do what they do. I point them in the right direction, keep them from wandering off cliffs, and make sure they end up where they need to be. Occasionally one of them hallucinates a dependency that doesn't exist and I have to go find it and bring it back. Shepherding.
 
-The skills this demands are real, but they are different. Prompt precision. Decomposition. Knowing when an agent is confidently wrong — which, by the way, it does with the same conviction as the most senior engineer in the room. Knowing when to let it run and when to intervene. Knowing how to structure a task so the agent doesn't paint itself into a corner three steps from now.
+The skills this demands are real, but they are different. Prompt precision. Decomposition. Knowing when an agent is confidently wrong, which, by the way, it does with the same conviction as the most senior engineer in the room. Knowing when to let it run and when to intervene. Knowing how to structure a task so the agent doesn't paint itself into a corner three steps from now.
 
-I spend a surprising amount of time on *optimization* — not of the code, but of the agents themselves. How do I get better output? How do I structure context so the model has what it needs? How do I break a large task into pieces that can run in parallel without stepping on each other? This is a new discipline, and I'm making it up as I go. There is no Stack Overflow answer for this. Yet.
+I spend a surprising amount of time on *optimization*. Not of the code, but of the agents themselves. How do I get better output? How do I structure context so the model has what it needs? How do I break a large task into pieces that can run in parallel without stepping on each other? This is a new discipline, and I'm making it up as I go. There is no Stack Overflow answer for this. Yet.
 
 ## The Process Vacuum
 
@@ -50,33 +50,33 @@ Here's what worries me: our entire professional infrastructure was built for the
 
 **Code review?** Designed for humans reading code written by other humans. It assumes a shared mental model, institutional knowledge, the ability to ask "why did you do it this way?" and get an answer rooted in experience and intent. When the code was written by an agent executing a specification, the review process needs to be fundamentally different. We haven't figured out what that looks like. We're still leaving "nit: add a newline here" comments on machine-generated code. Riveting stuff.
 
-**Sprint planning?** This one is my favorite. We sit in a room — or, more accurately, a Zoom call where half the cameras are off — and estimate how many story points a piece of work will take. Story points. In a world where a senior engineer with Claude Code can build in an afternoon what used to take a sprint. The entire premise of sprint planning was that writing code is the bottleneck, that you need to carefully ration your engineering capacity across a two-week window. That premise is gone. The bottleneck moved to specification, review, and integration, and we're still playing planning poker like it's 2019. I half-expect someone to suggest we estimate in "prompt points" next.
+**Sprint planning?** This one is my favorite. We sit in a room (or, more accurately, a Zoom call where half the cameras are off) and estimate how many story points a piece of work will take. Story points. In a world where a senior engineer with Claude Code can build in an afternoon what used to take a sprint. The entire premise of sprint planning was that writing code is the bottleneck, that you need to carefully ration your engineering capacity across a two-week window. That premise is gone. The bottleneck moved to specification, review, and integration, and we're still playing planning poker like it's 2019. I half-expect someone to suggest we estimate in "prompt points" next.
 
-The honest reality is that sprint planning, in its current form, makes no sense anymore. It's a ceremony designed to manage scarcity — scarcity of engineering output — in an era where output just became abundant. We're rationing water during a flood.
+The honest reality is that sprint planning, in its current form, makes no sense anymore. It's a ceremony designed to manage scarcity of engineering output in an era where output just became abundant. We're rationing water during a flood.
 
-**Pull requests?** Designed as a unit of human work — a coherent set of changes made by a person who can explain them. An agent working from a specification produces output that might be correct but doesn't carry the narrative a PR traditionally does. The reviewer has different questions and needs different context. Also, the PR is now the size of what used to be three PRs, because the agent doesn't get tired and doesn't have a meeting at 2pm.
+**Pull requests?** Designed as a unit of human work. A coherent set of changes made by a person who can explain them. An agent working from a specification produces output that might be correct but doesn't carry the narrative a PR traditionally does. The reviewer has different questions and needs different context. I once created 15 small PRs in a single afternoon, following the sacred best practice of "keep your PRs small and reviewable." By PR number six I realized I was just creating busywork for my reviewers and slowing myself down. I would have been better off shipping one large, coherent PR with a clear description of intent. Which is, of course, the exact opposite of everything we've been told for the last decade. But the old advice assumed a human was writing the code over the course of days, not an agent producing it in minutes. Small PRs were a concession to human cognitive limits. The agent doesn't have those limits. The reviewer might, but that's a different problem requiring a different solution, not an artificial constraint on batch size.
 
-**Technical interviews?** Still testing whether candidates can write a binary search on a whiteboard. In a world where the ability to produce code is no longer the scarce resource, we are selecting for the wrong skills entirely. But sure, let's keep asking people to reverse a linked list from memory. That'll identify the talent we need.
+**Technical interviews?** Still asking candidates to grind LeetCode problems over Zoom while a stranger watches them share their screen, or worse, forcing them through HackerRank gauntlets that auto-reject based on Big O complexity. Let's be honest: this was a dumb practice even *before* AI made it obsolete. Nobody ever figured out how to do technical interviews well. We just collectively agreed to pretend that watching someone fumble through a dynamic programming problem in 45 minutes told us something meaningful about whether they could build software. It didn't. It told us they were good at LeetCode. Now, in a world where the ability to produce code is no longer the scarce resource, we're selecting for the wrong skills entirely. But sure, let's keep the HackerRank subscription active. That'll identify the talent we need.
 
-None of these processes are wrong in principle. They are all wrong *in practice* — calibrated for a world that no longer exists. And we haven't replaced them yet.
+None of these processes are wrong in principle. They are all wrong *in practice*, calibrated for a world that no longer exists. And we haven't replaced them yet.
 
 ## The Senior Engineer Supernova
 
 Here's something nobody predicted: seniority just became a superpower in a way it never was before.
 
-A senior engineer — someone who actually understands systems, who has taste, who knows what to build and what not to build — can now operate at a speed that would have been physically impossible a year ago. Give a senior engineer Claude Code and clear autonomy, and they will build in a week what used to take a team a quarter. That's not hyperbole. I've watched it happen. I've *done* it.
+A senior engineer who actually understands systems, who has taste, who knows what to build and what not to build, can now operate at a speed that would have been physically impossible a year ago. Give a senior engineer Claude Code and clear autonomy, and they will build in a week what used to take a team a quarter. That's not hyperbole. I've watched it happen. I've *done* it.
 
-The leverage is obscene. All those years of accumulated judgment, architectural intuition, and "I've seen this pattern fail before" pattern recognition? It turns out that's exactly what you need to effectively direct an AI agent. The senior engineer doesn't need to type faster. They need to *think* correctly — and they already do. Now they have an army of tireless agents that can execute on that thinking at machine speed.
+The leverage is obscene. All those years of accumulated judgment, architectural intuition, and "I've seen this pattern fail before" pattern recognition? It turns out that's exactly what you need to effectively direct an AI agent. The senior engineer doesn't need to type faster. They need to *think* correctly, and they already do. Now they have an army of tireless agents that can execute on that thinking at machine speed.
 
-Junior engineers used to close the gap through sheer hours of coding. That path just narrowed considerably. The gap isn't about who can write more code — it's about who can direct the code-writing more effectively. And that's a function of experience, judgment, and taste. Things that take years to develop and can't be shortcut.
+Junior engineers used to close the gap through sheer hours of coding. That path just narrowed considerably. The gap isn't about who can write more code. It's about who can direct the code-writing more effectively. And that's a function of experience, judgment, and taste. Things that take years to develop and can't be shortcut.
 
 The implication is uncomfortable but real: a small number of senior engineers with the right tools and the autonomy to use them can replace what used to require a much larger team. Organizations that figure this out will move terrifyingly fast. Organizations that don't will wonder why their 50-person team is being outshipped by a company with eight people and a very large Anthropic bill.
 
 ## The Dangerous Gap
 
-We're in the gap right now. The old processes feel hollow but we keep doing them because we don't have alternatives. Standups where people report what they prompted an agent to build. Code reviews where the reviewer understands the specification but is checking agent output they didn't write and the author didn't write either. Sprint velocity metrics that have become meaningless because the unit of work changed underneath them — but the Jira dashboard still looks nice, so management is happy.
+We're in the gap right now. The old processes feel hollow but we keep doing them because we don't have alternatives. Standups where people report what they prompted an agent to build. Code reviews where the reviewer understands the specification but is checking agent output they didn't write and the author didn't write either. Sprint velocity metrics that have become meaningless because the unit of work changed underneath them, but the Jira dashboard still looks nice, so management is happy.
 
-The danger is that we linger in this gap too long. That we keep performing the rituals of the old way because they're comfortable, because they're what we know, because the organizational machinery expects them. Meanwhile, the actual work — the shepherding — happens in the cracks, unstructured and unmeasured.
+The danger is that we linger in this gap too long. That we keep performing the rituals of the old way because they're comfortable, because they're what we know, because the organizational machinery expects them. Meanwhile, the actual work, the shepherding, happens in the cracks, unstructured and unmeasured.
 
 We need new processes and we need them fast. Not adaptations of the old ones. New ones, built from first principles for a world where:
 
@@ -90,7 +90,7 @@ I don't know what those processes look like yet. Nobody does. But I know the ans
 
 ## What Stays, What Goes
 
-Not everything changes. Taste still matters. Judgment still matters. Understanding systems at a deep level still matters — maybe more than ever, because you need to evaluate output you didn't produce. Knowing what "good" looks like is more important when you're not the one building it.
+Not everything changes. Taste still matters. Judgment still matters. Understanding systems at a deep level still matters, maybe more than ever, because you need to evaluate output you didn't produce. Knowing what "good" looks like is more important when you're not the one building it.
 
 What goes away is the fetishization of the craft of *writing* code. The pride in an elegant one-liner. The identity built around being the person who could bang out a feature in an afternoon. That identity needs to die, and it needs to die quickly, because clinging to it will make you slow in a world that just got very fast. Nobody brags about their handwriting speed in the age of keyboards. Same energy.
 
@@ -98,7 +98,7 @@ What goes away is the fetishization of the craft of *writing* code. The pride in
 
 I'll say the thing nobody wants to say: I miss it.
 
-I miss the flow state of writing code. The tactile satisfaction of a clean implementation coming together under my fingers. The feeling of *building* something, character by character. Now I build things by describing them precisely and watching them materialize. It's more powerful. It's less satisfying. It's like the difference between cooking a meal and ordering one — even if the ordered meal is better, something is lost.
+I miss the flow state of writing code. The tactile satisfaction of a clean implementation coming together under my fingers. The feeling of *building* something, character by character. Now I build things by describing them precisely and watching them materialize. It's more powerful. It's less satisfying. It's like the difference between cooking a meal and ordering one, even if the ordered meal is better, something is lost.
 
 But nostalgia is not a strategy. The world shifted. It shifted overnight. And the people who thrive in what comes next will be the ones who let go of what coding *was* and get curious about what it's *becoming*.
 
