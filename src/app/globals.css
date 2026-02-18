@@ -2,8 +2,11 @@
 @plugin "@tailwindcss/typography";
 
 @theme inline {
-  --color-background: #ffffff;
-  --color-foreground: #171717;
+  --color-background: #fafaf9;
+  --color-foreground: #1c1917;
+  --color-accent: #0d9488;
+  --color-accent-hover: #0f766e;
+  --color-surface: #ffffff;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -12,4 +15,19 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: fade-in 0.35s ease-out;
 }

@@ -1,0 +1,83 @@
+export const metadata = {
+  title: "Don't Build Agents, Build Skills",
+  date: "2026-02-17",
+  description: "Anthropic thinks the future isn't more agents. It's teaching the ones we have. A talk from Barry Zhang and Mahesh Murag lays out the case for skills over scaffolding.",
+};
+
+Yesterday I wrote about what it feels like to work alongside coding agents. The short version: the bottleneck moved. It used to be writing code. Now it's judgment, taste, and knowing what to build. The code just appears.
+
+I barely had time to close the laptop before Anthropic went ahead and validated half my thesis for me. Barry Zhang and Mahesh Murag gave a [talk](https://www.youtube.com/watch?v=CEvIs9y1uog) called "Don't Build Agents, Build Skills Instead." The thesis is sharp: stop building new agents for every domain. The agent is already general purpose. What it lacks is expertise. So give it expertise.
+
+That framing clicked for me immediately. Probably because I just spent 3,000 words saying the same thing with more swearing.
+
+## The Problem Is Knowledge, Not Intelligence
+
+Barry opens with an analogy that stuck with me. Who do you want doing your taxes? A 300 IQ mathematical genius who has to figure out the 2025 tax code from first principles? Or an experienced tax professional who already knows the rules?
+
+You pick the professional every time. And yet here we are, an entire industry handing its most critical work to the genius savant who has never filed a return. Raw intelligence without domain knowledge is a liability. It's confidently wrong in ways that are hard to catch. Anyone who has watched an agent hallucinate a plausible but completely fictional API endpoint, then explain with absolute conviction why it's correct, knows exactly what this feels like. Very reassuring stuff.
+
+This is the gap I've been living in. The agents are brilliant. They can write clean code, reason about architecture, handle edge cases. But they don't know your team's conventions. They don't know your company's deployment process. They don't know that the internal billing API has three undocumented quirks that will eat your afternoon if you don't know about them up front. They have the IQ of a genius and the institutional knowledge of an intern on day one. Except the intern at least knows to ask questions.
+
+Anthropic's answer to this is something they're calling "skills."
+
+## Skills Are Just Folders
+
+I was bracing myself for some overwrought abstraction. A new protocol. A new runtime. A new YAML-based configuration language that would require its own VS Code extension and a three-day certification course. Maybe a blockchain, because why not.
+
+Nope. Skills are organized folders. That's it. A `skill.md` file with instructions. Some scripts. Maybe some assets or reference files. You can version them in Git, zip them up, share them with your team. No new runtime. No new protocol. No vendor lock-in on some skill marketplace. Folders.
+
+I cannot overstate how refreshing this is. The AI ecosystem has spent the last two years inventing new abstractions for things that already had perfectly good solutions. Anthropic looked at the problem of "how do we give agents domain knowledge" and arrived at the answer that your operating system figured out in 1970. Folders and files. Revolutionary.
+
+The simplicity is deliberate and I think it's the smartest part of the whole approach. Files have been a primitive for decades. Everyone knows how they work. Humans can read them. Agents can read them. You don't need a PhD in prompt engineering to put instructions in a markdown file and save a Python script next to it. If you can use Finder, congratulations, you're a skill developer now.
+
+The key insight is progressive disclosure. At runtime, the agent only sees metadata about available skills, just enough to know what's there. When it decides it needs a particular skill for a task, it reads the full instructions. Everything else stays on the file system until it's needed. This means you can equip an agent with hundreds of skills without blowing up its context window. The agent pulls in knowledge on demand instead of carrying everything all the time. Like a developer who actually reads the documentation before asking in Slack. Imagine.
+
+## Code as Universal Interface
+
+Here's where the talk gets interesting. Barry and Mahesh argue that code isn't just a use case for agents. It's the universal interface to the digital world.
+
+Think about generating a financial report. The agent calls an API to pull data. It organizes the data in the file system. It analyzes it with Python. It synthesizes the insights into a formatted document. All through code. The agent doesn't need a special "financial report tool." It needs bash, a file system, and the knowledge of how to do the work. The same agent that writes your React components can also do your quarterly revenue analysis. It just needs different instructions. I'm sure that's not terrifying to anyone reading this.
+
+This reframes what Claude Code actually is. It's not just a coding agent. It's a general purpose agent that happens to use code as its primary mechanism for interacting with everything. The "core scaffolding" as they put it becomes as thin as bash and file system access. Everything else is domain knowledge.
+
+This tracks with my experience. The most productive thing I do with Claude Code isn't writing application code. It's using it as a general purpose problem solver that can touch files, run scripts, call APIs, and produce artifacts. The code is the medium, not the message. I've been treating my coding agent as a general agent for months. Turns out that wasn't a misuse. It was the whole point.
+
+## The Ecosystem That's Forming
+
+The talk lays out three tiers of skills that are already emerging:
+
+**Foundational skills** give agents entirely new capabilities. Anthropic built document skills so Claude can create and edit professional quality office documents. Cadence built scientific research skills for EHR data analysis and bioinformatics libraries.
+
+**Third-party skills** help agents work better with specific products. Browserbase built a skill for their browser automation tooling, letting Claude navigate the web more effectively. Notion built skills so Claude can do deep research across your workspace.
+
+**Enterprise skills** are the ones that interest me the most. Fortune 100 companies are using skills to teach agents about their organizational best practices, their bespoke internal software, their code style conventions. Developer productivity teams serving thousands of engineers are deploying skills as a way to standardize how agents work across an organization.
+
+That last category is where this gets real. Every company has its own weird way of doing things. The deploy process that requires three specific flags nobody documented. The internal library that wraps the standard one but changes the error handling for reasons lost to time. The naming convention that exists only in the collective muscle memory of the team and is enforced exclusively through code review comments that say "we don't do it that way here." Skills are a container for all of that accumulated tribal knowledge that currently lives in the heads of people who might quit tomorrow.
+
+## Skills Complement MCP, They Don't Replace It
+
+One thing the talk makes clear: skills and MCP servers serve different roles. MCP provides connectivity to the outside world. Tools, data sources, APIs. Skills provide the expertise for how to use them.
+
+You might have an MCP server that connects to your company's internal APIs. The skill is what tells the agent the right sequence of calls to make, which endpoints are reliable and which ones will silently return stale data on Tuesdays for reasons nobody can explain, and how to handle the edge cases that only someone with battle scars would know about.
+
+MCP is the hands. Skills are the training. One without the other gives you either a knowledgeable person with no arms or a very strong person who doesn't know what they're doing. Both bad. Both common in enterprise software.
+
+## What This Means for the Rest of Us
+
+The talk closes with an analogy I like. Models are like processors. Massive investment, immense potential, limited use on their own. Agent runtimes are like operating systems, orchestrating what goes in and out of the model. Skills are like applications. The layer where the rest of us get to contribute.
+
+A few companies build processors and operating systems. Millions of developers build applications. Skills open that same application layer for agents. And here's the part that surprised me: non-technical people are already building skills. Finance, recruiting, accounting, legal. People who aren't writing code are extending what these agents can do in their own domains. The accountant down the hall is now an AI developer. She doesn't know it yet, but she's putting procedural knowledge into a folder, and that's all it takes.
+
+That's a big deal. It means the shepherd metaphor from my last post might be too narrow. It's not just engineers directing agents. It's domain experts of every kind teaching agents how to do real work in their specific context. Welcome to the party, everyone. The water's weird in here.
+
+## The Part I'm Still Thinking About
+
+Anthropic's stated goal is that Claude on day 30 of working with you should be meaningfully better than Claude on day one. Skills are the mechanism for that. As you work with the agent, as you give it feedback and correct its mistakes, those learnings can be captured as skills. The agent writes them down in a format its future self can use efficiently.
+
+This is continuous learning without retraining. Just files in folders, accumulating institutional knowledge over time. Your team's skills grow. New people join and their Claude already knows how the team works. The compounding effect extends beyond your organization into the broader community, just like open source libraries compound the capability of individual developers.
+
+If that sounds like "what if onboarding documentation actually worked," you're not wrong. We've been trying to capture institutional knowledge in wikis and Confluence pages for twenty years. It never worked because humans don't read documentation. Agents do. So maybe the fix for our broken knowledge management wasn't better wikis. It was building a colleague that actually reads them.
+
+I don't know if the execution will match the vision. It's early. The talk is five weeks into this thing and already throwing around phrases like "evolving knowledge base" and "compounding value." Silicon Valley has never met a concept it couldn't overpromise on before lunch. But the direction feels right. The bottleneck was never the agent's intelligence. It was always its knowledge. Skills are a pragmatic, unsexy, folder-based solution to that problem.
+
+And honestly, the best engineering solutions usually are.

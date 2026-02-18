@@ -1,4 +1,5 @@
-import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
+import Link from "next/link";
+import { getAllPostSlugs, getPostBySlug, formatDate } from "@/lib/posts";
 
 export async function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }));
@@ -27,12 +28,23 @@ export default async function BlogPost({
 
   return (
     <article>
-      <header className="mb-8">
-        <time className="text-sm text-gray-500">{meta.date}</time>
-        <h1 className="mt-1 text-3xl font-bold text-gray-900">{meta.title}</h1>
-        <p className="mt-2 text-gray-600">{meta.description}</p>
+      <Link
+        href="/blog"
+        className="inline-flex items-center gap-1 text-sm font-medium text-teal-600 transition-colors hover:text-teal-700"
+      >
+        &larr; Back to blog
+      </Link>
+      <header className="mt-6 mb-10">
+        <time className="text-xs font-medium uppercase tracking-wide text-stone-400">
+          {formatDate(meta.date)}
+        </time>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-stone-900">
+          {meta.title}
+        </h1>
+        <p className="mt-3 text-lg text-stone-500">{meta.description}</p>
+        <div className="mt-6 h-px bg-gradient-to-r from-teal-600/20 via-stone-200 to-transparent" />
       </header>
-      <div className="prose prose-gray max-w-none">
+      <div className="prose prose-stone max-w-none prose-headings:tracking-tight prose-a:text-teal-600 prose-a:decoration-teal-600/30 hover:prose-a:text-teal-700 hover:prose-a:decoration-teal-700">
         <Content />
       </div>
     </article>

@@ -2,14 +2,14 @@ import type { Project } from "@/lib/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="rounded-lg border border-gray-200 p-6">
-      <h3 className="text-lg font-semibold text-gray-900">{project.title}</h3>
-      <p className="mt-2 text-sm text-gray-600">{project.description}</p>
+    <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-stone-200/60 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+      <h3 className="text-lg font-semibold text-stone-900">{project.title}</h3>
+      <p className="mt-2 text-sm text-stone-500">{project.description}</p>
       <div className="mt-3 flex flex-wrap gap-2">
         {project.tech.map((t) => (
           <span
             key={t}
-            className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700"
+            className="rounded-full bg-teal-50 px-2.5 py-0.5 text-xs font-medium text-teal-700"
           >
             {t}
           </span>
@@ -22,7 +22,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-blue-600 hover:underline"
+              className="text-sm font-medium text-teal-600 transition-colors hover:text-teal-700"
             >
               Live Site
             </a>
@@ -32,7 +32,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               href={project.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-blue-600 hover:underline"
+              className="text-sm font-medium text-teal-600 transition-colors hover:text-teal-700"
             >
               Source Code
             </a>

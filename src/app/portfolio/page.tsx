@@ -9,8 +9,13 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <div>
-      <h1 className="text-3xl font-bold text-gray-900">Portfolio</h1>
-      <p className="mt-4 text-gray-600">
+      <p className="text-sm font-medium uppercase tracking-widest text-teal-600">
+        Portfolio
+      </p>
+      <h1 className="mt-2 text-3xl font-bold tracking-tight text-stone-900">
+        Projects
+      </h1>
+      <p className="mt-4 text-stone-500">
         A selection of projects I&apos;ve worked on.
       </p>
       <div className="mt-8 grid gap-6 sm:grid-cols-2">

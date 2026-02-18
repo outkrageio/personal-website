@@ -11,8 +11,13 @@ export default async function BlogPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold text-gray-900">Blog</h1>
-      <p className="mt-4 text-gray-600">
+      <p className="text-sm font-medium uppercase tracking-widest text-teal-600">
+        Blog
+      </p>
+      <h1 className="mt-2 text-3xl font-bold tracking-tight text-stone-900">
+        Writing
+      </h1>
+      <p className="mt-4 text-stone-500">
         Thoughts on software engineering, testing, and more.
       </p>
       <div className="mt-8 space-y-4">
