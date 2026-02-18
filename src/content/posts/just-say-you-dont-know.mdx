@@ -1,0 +1,101 @@
+export const metadata = {
+  title: "Just Say You Don't Know",
+  date: "2026-02-18",
+  description: "The most dangerous engineer in the room isn't the one who makes mistakes. It's the one who never admits to them.",
+};
+
+I have a running list in my head. It's not written down anywhere. It doesn't need to be. It's the list of people I've worked with who I would drop everything to work with again. People I'd follow to a startup with no funding and a vague pitch deck. People I trust with my codebase, my roadmap, and my reputation.
+
+Every single person on that list has something in common. It's not that they're the smartest engineers I've known. Some of them are, some of them aren't. It's not that they ship the fastest or have the most impressive resumes. The thing they share is simpler than that: they own their mistakes. Completely. Without hesitation. Without spin.
+
+And on the other side of the ledger, I have a second list. The people I'd politely decline to work with again, even if the comp was double. Every person on *that* list shares something too: they have never, as far as I can tell, been wrong about anything. In their entire careers. Remarkable, statistically improbable track records of perfection.
+
+## The Never-Wrong Engineer
+
+You know this person. Every team has at least one. They're the engineer who, when a production incident traces back to their code, immediately explains why it was actually the spec that was wrong. Or the reviewer who should have caught it. Or the infrastructure team for not having better guardrails. Or, my personal favorite, "it worked on my machine," said with the conviction of someone testifying under oath.
+
+They're the person in the design review who states opinions as facts, and when those opinions turn out to be wrong six weeks later, simply pretends the conversation never happened. If you bring it up, they'll reframe it. "That's not what I meant." "The requirements changed." "Well, if we'd had more time..." There's always a reason, and the reason is never them.
+
+The never-wrong engineer is also, reliably, the engineer who won't say "I don't know." Ask them about a system they've never touched and they'll give you a confident answer pulled from the ether. It'll sound plausible. It might even be partially correct. But it's a guess dressed up in certainty, and they'd rather risk being wrong than admit they don't have the answer. The irony is thick enough to spread on toast.
+
+I once watched an engineer spend 45 minutes in a meeting defending an architectural decision that they clearly did not understand. I don't mean they made a bad call. I mean they did not understand the system they were talking about. But admitting that would have felt like weakness, so instead we all got to watch a slow-motion performance of someone constructing a plausible-sounding narrative in real time while the people who actually knew the system sat in polite, confused silence. Productive use of everyone's afternoon.
+
+## Why This Matters More Than You Think
+
+This isn't a personality quirk. It's a professional liability.
+
+When someone can't say "I was wrong," every post-mortem becomes theater. The goal stops being "understand what happened and prevent it" and becomes "construct a narrative where my involvement was reasonable." The root cause analysis gets warped around one person's need to not be the root cause. I've seen teams spend weeks misdiagnosing problems because the person closest to the actual cause wouldn't cop to it.
+
+When someone can't say "I don't know," decisions get made on bad information. The team assumes the confident voice in the room has knowledge backing it up. Why wouldn't they? The person sounded sure. So the team builds on that foundation, and three weeks later when it crumbles, nobody can trace it back to the moment where someone chose performance over honesty.
+
+The compounding effect is the real killer. Trust erodes in a specific pattern. First, people stop taking the never-wrong engineer at face value. They start quietly verifying everything. Then they stop asking for input at all, because the input is unreliable but sounds convincing, which is worse than no input. Then the engineer becomes isolated, still confident, still performing certainty, but operating in a bubble where nobody tells them anything important because it's not worth the conversational overhead of navigating their ego.
+
+I've watched this exact pattern play out at least four times across different companies. It always ends the same way. Either the person leaves, or the team routes around them like water around a rock, and they become the person who's technically on the team but functionally irrelevant. Both outcomes are bad.
+
+The part that gets me is the energy. I've seen people make mistakes and spend more time and effort reverse-engineering an explanation, constructing a defense, finding a way out of ownership, than it would have taken to just learn from the thing and move on. The math never works. Thirty seconds of "yeah, I got that wrong" versus three days of carefully managing a narrative so that the mistake was actually a series of reasonable decisions made with incomplete information in a challenging environment. One of those costs nothing. The other costs everything.
+
+I watched this play out recently on a large project. I joined late, and when we got to the retrospective I raised that the documentation was a mess. Not a controversial observation. There were too many documents, some with contradictory information, some with diagrams that described a system from three iterations ago. The kind of entropy that happens on any long-running project if nobody's tending the garden.
+
+The lead engineer on the project took it as a personal attack. Instead of "yeah, the docs drifted, we should have maintained them better," I got a request to find every source of documentation I found confusing and send links. So I did. Then the follow-up: what *exactly* was confusing about each one? Not a genuine attempt to improve the documentation. A cross-examination. The goal was to either prove that the docs were actually fine and I was wrong to be confused, or to establish that the confusion was somehow my fault for not reading them correctly. Either way, not their problem.
+
+The whole exercise probably took more combined hours than it would have taken to just clean up the docs. That's the tax. That's what the refusal to say "this could have been better" actually costs. Not just the original mistake, but the mounting overhead of defending it. And everyone else on the team watched it happen, and quietly filed it away as information about what kind of feedback is safe to give on this team. The answer, they learned, is none.
+
+## The People I Actually Want to Work With
+
+Contrast all of that with the best engineers I've known. The ones on the first list.
+
+I had a tech lead years ago who, during a production outage that affected thousands of users, got on the incident call and said: "This is my fault. I approved the PR that caused this. I missed the edge case in review. Let's fix it and then let's talk about why I missed it." No hedging. No blame distribution. Just ownership.
+
+That moment did more for team trust than any offsite or team-building exercise ever could. Because when the most senior person in the room demonstrates that admitting fault is safe, everyone else learns that it's safe too. The junior engineers on that call learned something that day that will make them better for the rest of their careers: being wrong is normal, and saying so is a strength.
+
+The best engineers I know say "I don't know" constantly. And then they follow it with "but let me find out" or "who would know this?" They treat gaps in their knowledge as a normal feature of being a human who can't know everything, rather than a character flaw to be concealed at all costs. It's incredible how much faster problems get solved when people are honest about what they do and don't know. You skip the part where everyone pretends to have the answer and go straight to actually finding it.
+
+There's a specific kind of respect you earn by owning your mistakes publicly. It's not the respect that comes from being impressive. It's the respect that comes from being trustworthy. And in a field where you're collaborating on complex systems with high stakes, I will take trustworthy over impressive every single day of the week.
+
+## The "I Don't Know" Ratio
+
+I've started paying attention to what I think of as the "I don't know" ratio. How often does a person say those three words in a given week? The best engineers I work with say it multiple times a day. The worst almost never do.
+
+This isn't because the best engineers know less. It's because they have an accurate mental model of their own knowledge. They know what they know. They know what they don't know. And they're not threatened by the boundary between the two.
+
+The never-wrong engineer, by contrast, has a wildly inaccurate self-model. They think they need to know everything, or at least appear to. So they fill gaps with confidence instead of curiosity. They optimize for looking competent in this meeting rather than being reliable over the long term. It's a terrible trade, and they keep making it, over and over, because the short-term reward of not looking foolish is immediate and the long-term cost of eroded trust is invisible to them.
+
+Here's the thing that makes this especially frustrating: nobody expects you to know everything. Nobody reasonable, anyway. Software is absurdly broad. The person who's an expert in distributed systems probably doesn't know the intricacies of CSS grid layout. The frontend specialist probably can't explain the finer points of database indexing strategies. That's fine. That's normal. That's why we work in teams. The only person who expects you to know everything is you, and that expectation is doing real damage.
+
+## Extreme Ownership Is a Cheat Code
+
+I'm going to borrow a phrase from a book that gets quoted too often in corporate settings, but the core idea is sound: extreme ownership.
+
+Not the watered-down corporate version where everyone claims to "take ownership" in their performance review while carefully avoiding blame for anything specific. I mean the real version. The version where when something goes wrong on your watch, you own it. Fully. Without qualifiers.
+
+"The deploy failed because I didn't test the migration path adequately." Not "the deploy failed because the staging environment doesn't match production," even if that's also true. Lead with your part. Other problems can be discussed separately.
+
+"I gave the team bad guidance on this. I was wrong about the approach and we need to change course." Not "the requirements were unclear," even if they were. You interpreted them. The interpretation was wrong. Say that.
+
+"I don't know how this system works. I need to spend time learning it before I have an opinion." Not a vague, hand-wavy answer that buys you time while implying you have a grasp you don't.
+
+People who do this consistently are the easiest people in the world to work with. You always know where you stand. You never have to decode their statements for hidden hedges. When they say they're confident about something, you can actually trust that confidence because they've demonstrated they'll tell you when they're not. The signal-to-noise ratio on everything they say is incredibly high.
+
+It's a cheat code for building trust. And trust, in a team environment, is the thing that makes everything else possible. Fast decisions, honest feedback, real post-mortems, actual collaboration instead of the performance of it. All of it runs on trust. And trust runs on honesty about what you know and what you got wrong.
+
+## The Culture Problem
+
+I want to be fair here. Some of this is individual behavior, but a lot of it is environmental. I've seen the same person be radically honest on one team and carefully self-protective on another. The difference was the team's relationship with failure.
+
+Teams that punish mistakes get engineers who hide mistakes. It's not complicated. If the last person who admitted fault in a post-mortem got grilled by leadership for an hour and then put on a performance improvement plan, guess what? Nobody's admitting fault in the next post-mortem. You've selected for exactly the behavior you claim to hate. Congratulations.
+
+The best engineering cultures I've been part of treated mistakes as information, not as ammunition. The post-mortem was genuinely blameless. Not "blameless" in the way that companies put it in their engineering principles document while everyone in the room knows that someone's getting a talking-to afterward. Actually blameless. "This happened, here's why, here's what we change." No theater. No consequences for honesty.
+
+Building that culture is hard. It requires leaders who model the behavior. Who say "I was wrong" first. Who say "I don't know" in front of their teams without flinching. Who respond to mistakes with curiosity instead of frustration. It's one of those things that's simple to describe and genuinely difficult to sustain, especially under pressure, especially when there's money on the line, especially when someone above you in the org chart wants a name attached to a failure.
+
+But the teams that pull it off are the ones that move fastest, learn the most, and keep their best people the longest. Because the best people want to work somewhere they can be honest. They'll take lower comp for higher trust. I have, more than once.
+
+## The Ask
+
+I'm not asking for perfection. I'm not asking anyone to be a saint. I'm asking for something much smaller.
+
+The next time you don't know something, say "I don't know." The next time you make a mistake, say "I was wrong." The next time a production incident traces back to your code, skip the part where you explain why it was actually reasonable and go straight to "yep, that was me, let's fix it."
+
+It will feel uncomfortable the first few times. It might feel like you're giving up power, or status, or credibility. You're not. You're building something more valuable than any of those things.
+
+You're building the kind of reputation that makes people put you on their first list.
