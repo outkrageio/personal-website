@@ -1,0 +1,131 @@
+export const metadata = {
+  title: "The Process Is the Problem",
+  date: "2026-02-22",
+  description: "Jira, sprint planning, and story points were built for a world that doesn't exist anymore. Here's what replaces them.",
+};
+
+I was in a sprint planning meeting last week. An hour and a half. Eight engineers, a product manager, and a scrum master on a Zoom call, cameras mostly off, estimating story points for work that hadn't started yet.
+
+Fifteen minutes in, we got to a ticket I'd been thinking about. "Refactor the notification service to support batched delivery." The PM read the acceptance criteria. The scrum master asked for estimates. Someone said five points. Someone else said eight. A brief debate about whether the database migration counted as part of this ticket or should be broken out. The scrum master pulled up the Fibonacci reference card. We settled on eight.
+
+I had already built it.
+
+Not the whole thing. But I'd spent forty minutes the night before talking through the approach with an agent, refining a plan, and letting it generate a working prototype. The core logic was done. The migration was written. I'd reviewed the output and it was solid. What remained was integration testing and a PR. Maybe two hours of work.
+
+I sat through the next seventy-five minutes of that meeting knowing the estimate was meaningless, the discussion was theater, and the Jira board we were so carefully grooming would be outdated before the sprint started. I alt-tabbed and kept working.
+
+That meeting cost the company roughly two thousand dollars in engineering salaries. It produced a set of story point estimates that bore no relationship to how long the work would actually take, organized in a tool that nobody on the team uses as their actual source of truth. But the dashboard looked great. Somebody's OKR was being served.
+
+This is the moment I'm writing about. Not the big existential question of AI replacing engineers. The smaller, more immediate, more fixable problem: the processes we use to organize engineering work are designed for a world that no longer exists, and every day we keep performing them is a day we're slower than we need to be.
+
+## These Processes Were Built for a Different Bottleneck
+
+Every engineering process you've ever suffered through was designed to solve the same fundamental problem: building software is expensive, and we need to make sure we're spending that expense wisely.
+
+Sprint planning exists because if an engineer is going to spend two weeks building something, you'd better make sure it's the right something. Story point estimation exists because if a feature is going to take three sprints, leadership needs to know that before they promise a date to customers. Jira exists because when you have forty engineers working on hundreds of tasks across months of work, you need a system of record to track who's doing what, what's blocked, and what's done. Standups exist because when work is slow-moving and context is spread across many heads, a daily sync keeps things from drifting.
+
+All of this makes sense. All of this made sense. When the bottleneck was engineering output, when writing code was the expensive, time-consuming part of building software, an elaborate planning and tracking apparatus was a reasonable investment. You don't want to waste your most constrained resource. So you plan carefully, estimate diligently, track religiously.
+
+The bottleneck moved.
+
+I wrote about this a few weeks ago. The short version: AI agents crossed a threshold where the output quality is high enough and the speed is fast enough that the expensive part of building software is no longer writing the code. The expensive part is knowing what to build. Defining the problem clearly. Having the judgment to evaluate whether the solution is correct. The actual code generation collapsed from days to minutes.
+
+When that happens, every process built around the assumption that code generation is the bottleneck becomes overhead. Not wrong in principle. Wrong in practice. Calibrated for constraints that no longer exist.
+
+Think about it this way: estimation made sense when the cost of building something was high enough that a bad estimate could blow a quarter. When building the thing takes an afternoon, the cost of a bad estimate is an afternoon. You don't need a planning meeting to manage that risk. You just build it and see.
+
+Sprint planning made sense when starting a new piece of work had high setup cost. You needed to understand the codebase, get context, ramp up. Switching between tasks was expensive. So you batched work into two-week chunks and tried to minimize context switches. When your setup cost is "paste the plan into a new agent session," the sprint boundary is an arbitrary line drawn through continuous work.
+
+Jira made sense when the tracking of work and the doing of work were necessarily separate activities. The engineer worked in their IDE, and the state of that work was recorded in Jira so that others could see it. Now the work and its documentation are converging into the same artifact. The plan is a markdown file. The progress is a git diff. The discussion is in the PR. Jira is a third-party copy of information that already exists in the repo, maintained at the cost of engineering time for the benefit of people who could just look at the repo.
+
+I'm not saying coordination is unnecessary. I'm saying the tools and rituals we use for coordination were designed for a different cost structure, and the cost structure changed.
+
+## What's Already Dead
+
+Let me be specific about what doesn't work anymore. Not abstract arguments. Concrete things I've watched break.
+
+**Story points are performance art.** The entire premise of estimation is that knowing how long something will take is valuable enough to justify the time spent figuring it out. That premise had a shelf life and it expired.
+
+I watched a team spend thirty minutes debating whether a feature was a five or an eight. The feature took three hours to build. Not three hours of painstaking, artisanal coding. Three hours of refining a plan with an agent, reviewing the output, running the tests, and shipping it. The estimation meeting itself took longer than the implementation. This isn't a one-time thing. This is a pattern. The cost of estimating is converging with the cost of doing, and when those two numbers meet, estimation becomes pure waste.
+
+The counterargument is that estimation isn't about accuracy, it's about surfacing complexity and forcing conversation about scope. Fine. You can have that conversation without Fibonacci cards and planning poker. You can have it by looking at the plan document and asking "does this seem right?" You don't need a ceremony.
+
+**Jira is a ghost town with nice dashboards.** Walk around any engineering team actually using AI tools effectively and ask them where the real plan lives. It's not in Jira. It's in a markdown file, or a doc, or a conversation thread with an agent. That's where the thinking happens. That's where the approach gets refined. Jira is where they go afterward to update a ticket status so that a dashboard somewhere reflects reality.
+
+The work and the tracking of the work have diverged completely. Engineers maintain Jira not because it helps them work, but because someone upstream needs a report. That's not a tool. That's a tax. Every minute spent translating real work into Jira-shaped work is a minute not spent building. And every team I know is paying this tax while quietly wishing they could stop.
+
+**Sprint planning is rationing water during a flood.** I stole this line from myself because it keeps being true. Sprint planning was designed to allocate scarce engineering capacity across a fixed time window. When engineering capacity is augmented by AI to the point where a single engineer can produce what used to take a team, the scarcity assumption is broken.
+
+I've been in sprint planning sessions where we carefully allocated two weeks of work, and then someone on the team finished their entire sprint allocation in three days because they used an agent effectively. Now what? Do they sit idle for seven days? Do they pull in more work and blow up the sprint scope? Do they pretend it took longer so the velocity chart looks consistent? None of these are good answers, and they all happen in the real world because the container doesn't fit the contents anymore.
+
+**Standups are status meetings for people who could read a diff.** The daily standup was invented to solve an information problem: what is everyone working on, what's blocked, do we need to coordinate? When work was slow-moving and poorly documented, fifteen minutes of verbal updates was the cheapest way to sync.
+
+Now the information exists. It's in the commit history. It's in the PR. It's in the plan document that's being updated in real time. The standup has become a meeting where people verbally recite information that's already written down, for the benefit of people who could read it asynchronously in two minutes. I don't know a single engineer who looks forward to standup. I know plenty who would be more productive without it.
+
+## What Actually Works Now
+
+Complaining is easy. Here's the harder part: what replaces it? I've been experimenting with this, and I don't have all the answers, but I've found patterns that work better than what they replace.
+
+**The plan document is the new unit of work.** Not a Jira ticket. Not a user story card. A plan document. Markdown. Lives in the repo. Version-controlled.
+
+A good plan document describes the problem, the proposed approach, the acceptance criteria, and the key decisions that were made along the way. It's not a spec in the old-fashioned waterfall sense. It's a living document that starts rough and gets refined. You write a first draft, talk it through with an agent, and the agent pushes back. "What about this edge case?" "Have you considered this approach instead?" "This acceptance criteria is ambiguous, here's what could go wrong." The plan improves through iteration, not through a committee review where eight people give conflicting feedback in a Google Doc.
+
+The plan document replaces Jira because it IS the tracking. The state of the plan, the commits against it, the PRs that implement it, those are the status. There's no second system to update. There's no translation from "what I actually did" to "what Jira says I did." The artifact and the record are the same thing.
+
+I've been doing this for the last several weeks and the difference is striking. I spend my mornings writing and refining plans. I spend my afternoons executing them with an agent. The plan is always up to date because it's the thing I'm actually working from, not a mirror I maintain for someone else.
+
+**Agent-refined specs beat committee-refined specs.** Here's something I didn't expect: the best specification process I've ever used is going back and forth with an AI agent.
+
+I'm not saying this to be provocative. I've been in design reviews with rooms full of senior engineers. I've done RFC processes with async feedback from a dozen people. None of those have consistently produced better, more thoroughly examined specifications than a focused conversation between me and an agent.
+
+The agent doesn't have politics. It doesn't protect its turf. It doesn't agree with the most senior person in the room to avoid conflict. It just pressure-tests the idea. "What happens when the database is down?" "This API contract is inconsistent with the pattern in the other service." "Your error handling doesn't cover this failure mode." Relentless, tireless scrutiny of the plan, without the social dynamics that make human review inconsistent.
+
+I still get human review. The final plan gets eyes from teammates who know the system. But by the time humans see it, it's been through enough iteration that the conversation is about strategy, not about catching holes. The humans do the thing humans are best at: exercising judgment about whether this is the right thing to build. The agent did the thing agents are best at: methodically checking whether the plan is internally consistent and complete.
+
+**Ship, then coordinate.** This one is a cultural shift, not a tool change. The old model was: plan, coordinate, execute. Get alignment before writing code. Make sure everyone agrees on the approach before anyone starts building.
+
+The new model, when the cost of building drops dramatically, is: build a working prototype, then coordinate around the reality. Don't spend an hour in a meeting debating an abstract approach. Spend that hour building the thing, then show people a working version and ask "is this right?"
+
+This sounds reckless. It's actually less risky than the alternative. A working prototype is an honest representation of the problem and the solution. An abstract plan is a shared hallucination that everyone interprets differently. I've watched teams spend weeks aligning on an approach, only to discover during implementation that the approach doesn't work. That's weeks of wasted coordination. If they'd built a prototype in a day, they'd have found the problem in a day and still had weeks to fix it.
+
+The key insight is that when building is cheap, building IS the exploration. You don't need a separate discovery phase. The prototype is the discovery.
+
+**Async over ceremonies.** Replace every meeting with a written artifact and see what happens. Sprint planning becomes a plan document that gets reviewed asynchronously. Standups become a daily written update in a shared channel, three sentences, read at your convenience. Retrospectives become a running document that people add to throughout the sprint instead of trying to remember everything in a one-hour meeting at the end.
+
+This isn't a new idea. Remote teams have been doing this for years. What's new is that the written artifacts are better now because agents help produce them. Writing a clear, thorough plan document used to be a significant time investment, which is why people preferred meetings. Now the agent does the heavy lifting on the writing, and you spend your time on the thinking. The cost of written communication just dropped, which tips the balance further away from synchronous meetings.
+
+The pattern I've landed on: a shared channel where each engineer posts a brief daily update. A plan document for every non-trivial piece of work. PR descriptions that explain intent, not just changes. And a weekly thirty-minute sync for the things that genuinely benefit from real-time conversation, usually cross-team dependencies and strategic decisions. Everything else is async. My team's meeting load dropped by about 60% and our output went up. Correlation isn't causation, but I'll take it.
+
+## But What About Chaos?
+
+"This sounds like cowboy coding with a nicer vocabulary."
+
+I hear this, and it's a fair concern. If you rip out Jira, sprint planning, estimation, and standups, what keeps a team from descending into chaos? What keeps people from building the wrong thing, duplicating work, or going dark for weeks?
+
+The answer is that the process didn't go away. It changed form.
+
+The plan document IS the coordination mechanism. It's not that nobody knows what you're working on. It's that they find out by reading a document in the repo instead of hearing you recite it in a meeting. The information is more detailed, more permanent, and more accessible than anything a standup ever produced.
+
+Code review still exists. PR review still exists. The checkpoint where another human looks at your work and says "this is good" or "this needs changes" is still there. What changed is the unit of review. Instead of reviewing fifty lines of hand-written code, you're reviewing a plan and its implementation together. The reviewer asks "does this solve the right problem the right way?" which is a better question than "is this semicolon in the right place?"
+
+The discipline shifts from process compliance to artifact quality. "Did you follow the process?" becomes "is your plan clear and your code correct?" I think that's a better question. Process compliance is easy to game. You can update Jira, attend standup, estimate your stories, and still build the wrong thing. Artifact quality is harder to fake. Either the plan is clear and the implementation is correct, or it isn't.
+
+For managers who are reading this and feeling nervous: I understand what you lose. You lose the dashboard. You lose the velocity chart. You lose the ability to pull up Jira and see, at a glance, what everyone is working on and whether the sprint is on track. Those things feel important. They feel like control.
+
+What you gain is speed and honesty. You gain engineers who spend their time building instead of reporting. You gain plans that are actually accurate instead of Jira tickets that were last updated three days ago. You gain a team that moves faster because the overhead dropped. The information you need is still there. It's in the repo, in the PRs, in the plan documents. It's just not in a dashboard anymore. You might have to learn a new way of looking at it. That's a reasonable trade for 30% more output.
+
+## The Gap Between Can and Allowed
+
+Here's what this really comes down to.
+
+There is a growing gap between how fast engineers *can* work and how fast their processes *allow* them to work. Every unnecessary meeting, every Jira update, every estimation ceremony, every standup that could have been a Slack message widens that gap. And the engineers feel it. They feel it in their bones. That restless frustration of knowing you could be shipping but instead you're grooming a backlog.
+
+This isn't laziness. Lazy engineers don't care about process because they don't care about shipping. The engineers who are frustrated with process are frustrated precisely because they care about shipping. They can see the finish line. They can feel how close it is. And then someone asks them to stop and update a ticket.
+
+The teams that close this gap first will have an enormous advantage. Not a marginal one. An enormous one. Because the productivity gains from AI tools are multiplicative, but only if you remove the process bottlenecks that serialize the work. An engineer with AI tools and legacy process is like a race car stuck in traffic. The engine is capable of 200 miles per hour, but the road only allows 30. Upgrading the engine further doesn't help. You have to clear the road.
+
+I don't think every team needs to adopt exactly what I've described here. Different teams have different constraints, different cultures, different levels of trust. But I think every team needs to ask themselves honestly: which of our processes exist because they help us build better software, and which exist because they've always existed?
+
+If the answer to "why do we do sprint planning?" is "because that's what Scrum says," that's not good enough anymore. If the answer to "why do we use Jira?" is "because we've always used Jira," that's not good enough either. Every process needs to justify its existence against the current cost structure, not the one from 2019.
+
+The engineers who figure this out first won't just be faster. They'll be building in a fundamentally different way, one where the process serves the work instead of the other way around. And the teams still sitting in sprint planning meetings, estimating story points for work an agent could finish before lunch, will wonder where the time went.
