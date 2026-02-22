@@ -1,0 +1,127 @@
+export const metadata = {
+  title: "The Shrinking Room",
+  date: "2026-02-22",
+  description: "Engineering teams are getting smaller and output is going up. What determines who stays in the room?",
+};
+
+I keep noticing the same thing. The teams shipping the most are getting smaller.
+
+Not because of layoffs. Not because of budget cuts. Not because some VP read a McKinsey report about headcount efficiency. The teams are shrinking because the work doesn't need as many people anymore. A project that would have taken five engineers and a quarter is getting done by two engineers in a month. A startup that would have needed a twenty-person engineering org to get to market is launching with four. The output didn't shrink. The headcount did.
+
+I don't have a grand theory about what this means. I have observations, a few convictions, and a lot of honest uncertainty. But I think the observations are worth writing down, because the people I talk to are all seeing the same thing and nobody quite knows what to make of it.
+
+## The Math Is Changing
+
+Here's what I can say with confidence: the ratio of engineers to output is shifting, and it's shifting fast.
+
+I've watched it happen on teams I've worked with. A role opens up, someone leaves, and instead of backfilling, the remaining team absorbs the work. Not because they're grinding harder. Because the tools changed. An engineer with an AI agent can carry a workload that would have been unreasonable two years ago. So the backfill req gets deprioritized. Then it gets quietly closed. The team is smaller and nobody noticed because the output didn't drop.
+
+Multiply that by every team at every company, and you get a slow, invisible contraction. Not a dramatic round of layoffs that makes the news. Just a gradual tightening. Fewer new hires. More closed reqs. Teams that used to be twelve are now nine, and nine is working fine.
+
+On the startup side, it's even more visible. I know founders building real products, products with paying customers and real traction, with engineering teams that would have been considered a skeleton crew three years ago. Two or three engineers doing the work of ten. Not because they're superhuman. Because they're working with tools that multiply their output in ways that compound.
+
+The honest question is: where does this land?
+
+One version of the future is that demand expands to absorb the surplus. Building software gets cheaper, so we build more of it. Internal tools that never cleared the ROI bar get built. Experiments that would have been too expensive to try get tried. The total volume of software goes up enough that the number of engineers stays the same or even grows, even though each engineer is more productive. This is the optimistic case, and it's not crazy. It's happened before with other technologies. When the cost of production drops, total production tends to go up.
+
+The other version is that most organizations don't have an infinite appetite for software. They have a finite set of problems, and once those problems are solved faster, they don't invent new problems just to keep engineers busy. In that version, the surplus capacity becomes surplus headcount. Not all at once. Not dramatically. Just a slow, steady compression where the industry employs fewer engineers than it otherwise would have, and the people who notice are the ones trying to get hired.
+
+I don't know which version is right. Probably some mix of both, varying by company and industry. But I know the ratio is changing, and pretending it isn't is a bad strategy for anyone who writes code for a living.
+
+## What Gets You a Seat
+
+If the room is getting smaller, the question that matters is: what determines who stays in it?
+
+I've been thinking about this a lot. Not in the abstract, but concretely. Looking at the engineers I know who are thriving right now and trying to figure out what they have in common. It's not one thing. It's a cluster of three.
+
+**The first is scope of thinking.** There's a meaningful difference between an engineer who thinks at the function level and an engineer who thinks at the system level. The function-level thinker can write an excellent implementation of a well-defined task. Give them a spec and they'll build it correctly. The system-level thinker looks at the spec and asks whether it's the right spec. They think about how this piece fits into the larger architecture. They think about what's going to break six months from now when requirements change. They think about the product, not just the code.
+
+In a world where AI agents can implement well-defined tasks faster than any human, the function-level thinker is competing directly with the machine. The system-level thinker is the one directing the machine. That's a very different position to be in.
+
+I want to be careful here, because "think bigger" is easy advice and mostly useless. What I actually mean is: the engineers who are thriving are the ones who can hold the whole problem in their head. Not just "how do I build this endpoint" but "should this be an endpoint at all, or should it be an event, and what are the downstream implications of that choice?" That kind of thinking was always valuable. It's becoming essential.
+
+**The second is adaptability.** This one is less about what you know and more about how fast you can learn something new.
+
+I've watched senior engineers with twenty years of experience refuse to use AI tools because "I write better code by hand." Some of them are right, for now. But the tools are getting better every month, and the gap between hand-written code and agent-generated code is closing. The engineers who dug in and said "I don't need this" six months ago are already behind the ones who said "let me figure out how to use this." Six months from now, the gap will be wider.
+
+On the other side, I've seen engineers with two or three years of experience pick up agent-based workflows faster than people with ten times their tenure. Not because they're smarter. Because they have less to unlearn. They don't have an identity built around writing code by hand. They don't feel a loss when the agent does the typing. They just see a tool that makes them faster and they use it.
+
+Seniority is not protection. Experience is valuable, but only if it's paired with willingness to change how that experience gets applied. The senior engineer who adapts becomes terrifyingly productive. The senior engineer who doesn't becomes expensive and slow relative to a junior with better tools and fewer attachments.
+
+**The third is taste.** This is the hardest one to talk about because it sounds vague, but it's becoming incredibly concrete.
+
+When an agent can generate ten implementations of a feature in the time it used to take to write one, the bottleneck shifts from production to evaluation. You need someone who can look at those ten options and know which one is good. Not which one compiles. Not which one passes the tests. Which one is *good*. Which one will be maintainable, performant, correct at the edges, and appropriate for the system it lives in.
+
+That's taste. It comes from experience, from having seen what works and what doesn't over years of building and maintaining systems. It's the ability to look at technically correct code and say "this is wrong" because you can feel the maintenance burden it will create, or the scaling problem it will hit, or the abstraction that's going to leak. You can't learn it from a book. You develop it by building things, shipping them, and living with the consequences.
+
+Taste is about to become the most valuable skill in software engineering. And the uncomfortable thing about taste is that not everyone develops it at the same rate, and some people don't develop it at all.
+
+## The Executor Problem
+
+Here's the part that's hard to say.
+
+A large percentage of working software engineers have spent their careers as executors. They receive a ticket, they build the ticket, they close the ticket. Receive, build, close. Sprint after sprint, year after year. They're good at it. Many of them are very good at it. They're reliable, consistent, professional implementers of other people's ideas.
+
+The industry built itself around this model. We hired for execution. Our interviews tested for execution. Can you reverse a linked list? Can you implement a binary search? Can you build this feature from this spec in this language? Our career ladders rewarded execution. Ship more features, get promoted. Write more code, get a raise. The entire professional infrastructure assumed that translating requirements into working code was the scarce, valuable skill at the center of the profession.
+
+It was. For decades. And then it wasn't.
+
+I'm not saying this to be cruel. The engineers who built their careers around execution did exactly what the industry asked them to do. They optimized for the signal the system was sending. The system's signal changed, fast, and nobody sent an update.
+
+But here's where I want to push back against the doom narrative: execution doesn't disappear. It transforms.
+
+The engineer who used to write the code now evaluates the agent's code. The skill isn't gone, it's reframed. The person who spent years developing an intuition for what correct code looks like is exactly the person who can review agent output with real rigor. They know what to look for. They know what smells wrong. They know the difference between code that works and code that's actually good. That's execution experience applied to a new surface area.
+
+The executor becomes the evaluator. The transition isn't trivial, but it's not a complete reinvention either. It's taking the same underlying skills, the pattern recognition, the attention to detail, the understanding of systems, and pointing them at a different kind of work.
+
+Some engineers will make this transition naturally. They'll start directing agents, reviewing output, and finding that their years of writing code gave them exactly the judgment needed to evaluate code. Others will struggle with it, either because the shift feels like a demotion or because their execution skills were more mechanical than intuitive. I don't know what the ratio will be. I suspect it's more favorable than the pessimists think and less favorable than the optimists claim.
+
+## When Ideas Become the Bottleneck
+
+There's a deeper question underneath all of this, and it's the one nobody seems ready for.
+
+For as long as software engineering has existed, the bottleneck has been execution. There were always more ideas than engineers to build them. Product backlogs stretched to infinity. The feature request list never got shorter. The limiting factor was always: how many engineers do we have, and how fast can they work?
+
+What happens when that limit lifts?
+
+When building software gets dramatically cheaper and faster, the backlog clears. Not overnight, but steadily. The things that used to sit in the "nice to have" column get built. The experiments that never happened because nobody could spare the engineering time finally happen. The internal tools that everyone agreed would be great but nobody had bandwidth for get built in a week.
+
+And then what? Then you need new ideas. Not feature requests plucked from a Jira backlog. Genuine ideas about what to build next. About what problems are worth solving. About what the product should become. And here's the thing about ideas: generating genuinely good ones is a fundamentally different skill than building them.
+
+Most engineering organizations are not set up for this. They have a small number of people, usually product managers and founders and a handful of senior engineers, who generate ideas about what to build. And they have a much larger number of people who build those ideas. When building gets 10x cheaper, you don't need 10x the builders. You might need more people who can figure out what's worth building in the first place.
+
+This is where the future gets hard to predict. Maybe the expanded capacity leads to genuine exploration. Maybe companies start building things they never would have attempted before. Maybe the reduction in execution cost unlocks a wave of creativity and experimentation that creates new kinds of engineering work we haven't imagined yet. Maybe the engineers who develop product sense and domain expertise become more valuable than ever because they can both identify problems and direct agents to solve them.
+
+Or maybe most organizations run out of ideas faster than they think. Maybe the backlog was infinite because execution was slow, and with faster execution, the backlog turns out to be pretty finite after all. Maybe the surplus engineering capacity doesn't get absorbed by new ideas but just becomes slack that eventually gets cut.
+
+I think the answer varies enormously by company and industry. Companies that are genuinely product-driven, that have more ambition than capacity, will expand. They'll build more, experiment more, and they'll need engineers who can operate in that mode. Companies that are maintenance-driven, that exist to keep existing systems running and occasionally add features, will contract. They'll need fewer people to do the same work.
+
+The uncomfortable implication is that where you work might matter as much as how you work.
+
+## The Path Nobody Talks About
+
+So what do you actually do with all of this?
+
+The career advice floating around right now is mostly platitudes. "Learn to prompt better." "Focus on soft skills." "Become a product engineer." All technically true, all too vague to be useful. Here's what I think actually matters, as concretely as I can make it.
+
+**Learn to think above the code.** If your daily work is taking a well-defined ticket and implementing it, start paying attention to where that ticket came from. Why was this the priority? What problem is it solving for the user? Is this the right solution, or just the one someone wrote down first? The engineers who will thrive are the ones who can operate at the level of problems, not just solutions. You build this muscle by asking questions, by sitting in product discussions, by caring about the "why" and not just the "how."
+
+**Get comfortable directing agents.** This isn't about prompt engineering tricks. It's about learning a new mode of working where your job is to define the task clearly, evaluate the output critically, and iterate until the result is right. It's closer to managing a very fast junior engineer than it is to writing code. The skill is knowing what to ask for and knowing whether what you got back is any good.
+
+**Develop opinions about products.** Engineers who only have opinions about technology are going to find those opinions less valuable. Engineers who have opinions about what should be built, about what users need, about what makes a product good, those opinions are about to be worth a lot more. You don't need to become a product manager. But you need to understand the product deeply enough to make judgment calls about it.
+
+**Build the evaluation muscle.** When you review code, don't just look for bugs. Ask yourself: is this the right approach? Is this architecture going to hold up? Is this solving the right problem? Train yourself to evaluate at a higher level than syntax and correctness. That's the skill that matters when the code is written by a machine.
+
+These are all learnable. They're not personality traits. They're not innate talents. They're skills, and they can be developed with deliberate practice. The engineers who start developing them now are going to have a meaningful head start.
+
+But I want to be honest about something: individual skill development doesn't change the macro picture. If the industry genuinely needs fewer engineers, being the best version of yourself improves your odds but doesn't change the total number of seats. The room is getting smaller regardless of how prepared you are. Preparation determines whether you're in it.
+
+## The Room
+
+I don't know how small the room gets. Nobody does, despite what the think pieces claim. The people predicting mass unemployment are guessing. The people predicting that everything will be fine are also guessing. The honest answer is that we're in the middle of a shift that hasn't finished shifting, and the final state is unclear.
+
+What I do know is that the engineers who will be in the room, whatever its size, are already distinguishing themselves. Not by writing more code. Not by learning the hottest framework. Not by grinding harder on the same work they've always done.
+
+They're distinguishing themselves by knowing what's worth building, by recognizing whether it was built right, and by adapting fast enough to keep up with a world that just stopped waiting for anyone to be ready.
+
+The room is getting smaller. What matters now is what you bring to it.
