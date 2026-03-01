@@ -20,15 +20,15 @@
 
 - [ ] **ARG-01**: Opening hook that drops reader into the professional moment before announcing thesis
 - [x] **ARG-02**: Problem framing — the fear that AI replaces QA, acknowledged honestly
-- [ ] **ARG-03**: Quality systems thinking named and defined AFTER examples earn it (not before)
+- [x] **ARG-03**: Quality systems thinking named and defined AFTER examples earn it (not before)
 - [ ] **ARG-04**: Call to action that challenges reader to evolve, not just feel reassured
-- [ ] **ARG-05**: Post reads as manifesto energy — assertive, direct, first-person authority
+- [x] **ARG-05**: Post reads as manifesto energy — assertive, direct, first-person authority
 
 ### Content — Quality
 
 - [ ] **QUAL-01**: Post is 1500-2000 words
-- [ ] **QUAL-02**: No hedging language, no "adapt or die" urgency rhetoric, no tool recommendations
-- [ ] **QUAL-03**: Failure example gets equal or more space than success example
+- [x] **QUAL-02**: No hedging language, no "adapt or die" urgency rhetoric, no tool recommendations
+- [x] **QUAL-03**: Failure example gets equal or more space than success example
 - [ ] **QUAL-04**: Reader walks away feeling both reassured AND challenged
 
 ### Technical
@@ -64,10 +64,10 @@
 | EXMP-02 | Phase 2 | Complete |
 | EXMP-03 | Phase 2 | Complete |
 | ARG-02 | Phase 2 | Complete |
-| ARG-03 | Phase 3 | Pending |
-| ARG-05 | Phase 3 | Pending |
-| QUAL-02 | Phase 3 | Pending |
-| QUAL-03 | Phase 3 | Pending |
+| ARG-03 | Phase 3 | Complete |
+| ARG-05 | Phase 3 | Complete |
+| QUAL-02 | Phase 3 | Complete |
+| QUAL-03 | Phase 3 | Complete |
 | ARG-01 | Phase 4 | Pending |
 | ARG-04 | Phase 4 | Pending |
 | QUAL-01 | Phase 5 | Pending |
