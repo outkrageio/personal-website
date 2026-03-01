@@ -13,13 +13,13 @@
 ### Content — Examples
 
 - [x] **EXMP-01**: Force multiplier example (FastAPI diagnostic service built in one week) rendered with full texture — timing, specifics, what it demonstrates
-- [ ] **EXMP-02**: Blind spot example (AI testing its own assumptions, business logic incorrect) rendered with equal or greater depth than EXMP-01
-- [ ] **EXMP-03**: Pivot sentence connecting both examples — establishes why human quality thinking is irreplaceable
+- [x] **EXMP-02**: Blind spot example (AI testing its own assumptions, business logic incorrect) rendered with equal or greater depth than EXMP-01
+- [x] **EXMP-03**: Pivot sentence connecting both examples — establishes why human quality thinking is irreplaceable
 
 ### Content — Argument
 
 - [ ] **ARG-01**: Opening hook that drops reader into the professional moment before announcing thesis
-- [ ] **ARG-02**: Problem framing — the fear that AI replaces QA, acknowledged honestly
+- [x] **ARG-02**: Problem framing — the fear that AI replaces QA, acknowledged honestly
 - [ ] **ARG-03**: Quality systems thinking named and defined AFTER examples earn it (not before)
 - [ ] **ARG-04**: Call to action that challenges reader to evolve, not just feel reassured
 - [ ] **ARG-05**: Post reads as manifesto energy — assertive, direct, first-person authority
@@ -61,9 +61,9 @@
 | PLAN-01 | Phase 1 | Complete |
 | PLAN-02 | Phase 1 | Complete |
 | EXMP-01 | Phase 2 | Complete |
-| EXMP-02 | Phase 2 | Pending |
-| EXMP-03 | Phase 2 | Pending |
-| ARG-02 | Phase 2 | Pending |
+| EXMP-02 | Phase 2 | Complete |
+| EXMP-03 | Phase 2 | Complete |
+| ARG-02 | Phase 2 | Complete |
 | ARG-03 | Phase 3 | Pending |
 | ARG-05 | Phase 3 | Pending |
 | QUAL-02 | Phase 3 | Pending |

@@ -13,7 +13,7 @@ This roadmap delivers a 1500-2000 word manifesto-style blog post for Kraig Britt
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Design Doc** - Lock argument structure, section sequencing, and key language before any prose is written (completed 2026-03-01)
-- [ ] **Phase 2: Draft Examples** - Write the two anchor examples in full — they are the post's load-bearing content
+- [x] **Phase 2: Draft Examples** - Write the two anchor examples in full — they are the post's load-bearing content (completed 2026-03-01)
 - [ ] **Phase 3: Draft Pivot and Synthesis** - Write the pivot sentence and quality systems thinking synthesis after examples are complete
 - [ ] **Phase 4: Draft Hook, Reframe, and Close** - Write opening and close last, when the destination and challenge are fully known
 - [ ] **Phase 5: Revision and Publication** - Manifesto register check, word count validation, and publish to site
@@ -43,7 +43,7 @@ Plans:
   2. Blind spot example (AI testing its own assumptions, business logic incorrect) is equal or greater length to Example 1 and captures the discovery moment — the green test suite, the confident CI output, the fundamentally wrong business logic
   3. A pivot sentence (1-3 sentences) connects both examples and acknowledges Example 1's power while introducing the condition that makes it real, without reading as a reversal
   4. The fear narrative (AI replaces QA) is named and acknowledged honestly before the reframe
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
 - [x] 02-01-PLAN.md — Create MDX stub and write force multiplier example (EXMP-01)
@@ -91,7 +91,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Design Doc | 1/1 | Complete   | 2026-03-01 |
-| 2. Draft Examples | 1/2 | In progress | - |
+| 2. Draft Examples | 2/2 | Complete   | 2026-03-01 |
 | 3. Draft Pivot and Synthesis | 0/TBD | Not started | - |
 | 4. Draft Hook, Reframe, and Close | 0/TBD | Not started | - |
 | 5. Revision and Publication | 0/TBD | Not started | - |
