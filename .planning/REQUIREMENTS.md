@@ -63,24 +63,24 @@
 | EXMP-01 | Phase 2 | Pending |
 | EXMP-02 | Phase 2 | Pending |
 | EXMP-03 | Phase 2 | Pending |
-| ARG-01 | Phase 3 | Pending |
 | ARG-02 | Phase 2 | Pending |
 | ARG-03 | Phase 3 | Pending |
-| ARG-04 | Phase 3 | Pending |
 | ARG-05 | Phase 3 | Pending |
-| QUAL-01 | Phase 3 | Pending |
 | QUAL-02 | Phase 3 | Pending |
 | QUAL-03 | Phase 3 | Pending |
-| QUAL-04 | Phase 3 | Pending |
-| TECH-01 | Phase 3 | Pending |
-| TECH-02 | Phase 3 | Pending |
-| TECH-03 | Phase 3 | Pending |
+| ARG-01 | Phase 4 | Pending |
+| ARG-04 | Phase 4 | Pending |
+| QUAL-01 | Phase 5 | Pending |
+| QUAL-04 | Phase 5 | Pending |
+| TECH-01 | Phase 5 | Pending |
+| TECH-02 | Phase 5 | Pending |
+| TECH-03 | Phase 5 | Pending |
 
 **Coverage:**
 - v1 requirements: 17 total
 - Mapped to phases: 17
-- Unmapped: 0 ✓
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-01*
-*Last updated: 2026-03-01 after initial definition*
+*Last updated: 2026-03-01 after roadmap finalized*
