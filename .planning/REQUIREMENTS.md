@@ -26,16 +26,16 @@
 
 ### Content — Quality
 
-- [ ] **QUAL-01**: Post is 1500-2000 words
+- [x] **QUAL-01**: Post is 1500-2000 words
 - [x] **QUAL-02**: No hedging language, no "adapt or die" urgency rhetoric, no tool recommendations
 - [x] **QUAL-03**: Failure example gets equal or more space than success example
-- [ ] **QUAL-04**: Reader walks away feeling both reassured AND challenged
+- [x] **QUAL-04**: Reader walks away feeling both reassured AND challenged
 
 ### Technical
 
-- [ ] **TECH-01**: MDX file created at `src/content/posts/` with correct metadata export (title, date, description)
-- [ ] **TECH-02**: Post builds successfully with `npm run build`
-- [ ] **TECH-03**: Post appears on blog listing page sorted correctly by date
+- [x] **TECH-01**: MDX file created at `src/content/posts/` with correct metadata export (title, date, description)
+- [x] **TECH-02**: Post builds successfully with `npm run build`
+- [x] **TECH-03**: Post appears on blog listing page sorted correctly by date
 
 ## v2 Requirements
 
@@ -70,11 +70,11 @@
 | QUAL-03 | Phase 3 | Complete |
 | ARG-01 | Phase 4 | Complete |
 | ARG-04 | Phase 4 | Complete |
-| QUAL-01 | Phase 5 | Pending |
-| QUAL-04 | Phase 5 | Pending |
-| TECH-01 | Phase 5 | Pending |
-| TECH-02 | Phase 5 | Pending |
-| TECH-03 | Phase 5 | Pending |
+| QUAL-01 | Phase 5 | Complete |
+| QUAL-04 | Phase 5 | Complete |
+| TECH-01 | Phase 5 | Complete |
+| TECH-02 | Phase 5 | Complete |
+| TECH-03 | Phase 5 | Complete |
 
 **Coverage:**
 - v1 requirements: 17 total

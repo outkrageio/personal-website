@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Draft Examples** - Write the two anchor examples in full — they are the post's load-bearing content (completed 2026-03-01)
 - [x] **Phase 3: Draft Pivot and Synthesis** - Write the pivot sentence and quality systems thinking synthesis after examples are complete (completed 2026-03-01)
 - [x] **Phase 4: Draft Hook, Reframe, and Close** - Write opening and close last, when the destination and challenge are fully known (completed 2026-03-01)
-- [ ] **Phase 5: Revision and Publication** - Manifesto register check, word count validation, and publish to site
+- [x] **Phase 5: Revision and Publication** - Manifesto register check, word count validation, and publish to site (completed 2026-03-01)
 
 ## Phase Details
 
@@ -87,7 +87,7 @@ Plans:
   3. MDX file exists at `src/content/posts/` with correct metadata export (title, date, description)
   4. `npm run build` completes without errors
   5. Post appears on the blog listing page sorted correctly by date
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 - [ ] 05-01-PLAN.md — Expand synthesis and close sections to target word count, verify build and publication readiness (QUAL-01, QUAL-04, TECH-01, TECH-02, TECH-03)
@@ -103,4 +103,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Draft Examples | 2/2 | Complete   | 2026-03-01 |
 | 3. Draft Pivot and Synthesis | 1/1 | Complete | 2026-03-01 |
 | 4. Draft Hook, Reframe, and Close | 1/1 | Complete   | 2026-03-01 |
-| 5. Revision and Publication | 0/1 | Not started | - |
+| 5. Revision and Publication | 1/1 | Complete   | 2026-03-01 |
