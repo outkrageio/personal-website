@@ -3,3 +3,21 @@ export const metadata = {
   date: "2026-03-01",
   description: "AI makes quality engineers more powerful than ever, but only if they claim the one role AI cannot fill: deciding what quality means.",
 };
+
+## AI Gave One Engineer the Power of a Team
+
+I built a diagnostic service last year that I could not have built without AI. Not because I lacked the skills. Because I lacked the time and the headcount.
+
+The service existed to answer a question that everyone on my team was asking every day: when a test fails, why did it fail? Not the surface reason, the exception message, the line number. The real reason. Was this a flaky test? A regression from last week's deployment? A sign that a particular component was degrading over time?
+
+The system I built ingests three things: pass/fail history across every build in the previous ninety days, runtime logs from the test execution environment, and historical failure trends tied to specific test names and code paths. It feeds that corpus to an AI model and asks it to do what a good senior engineer does when they sit down with a failing build: pattern match across the inputs, infer the most likely cause, and surface fix suggestions ranked by confidence. The highest-confidence suggestions are almost always right. The lower-confidence ones are almost always worth reading.
+
+I built it in one week. Solo.
+
+Without AI, a system like that requires months. You need someone to build the data ingestion layer, someone to design the failure classification logic, someone to stand up the infrastructure, someone to tune the model or the heuristics. You need a team. You need a roadmap. You need budget approval for the dedicated infrastructure.
+
+I had a laptop and a week.
+
+That is not primarily a story about speed. Speed matters, but it is not the point. The point is that I did something that was previously out of reach. Organizations that wanted this had to decide it was worth a significant engineering investment. One engineer building it in a week was not an option that existed.
+
+The capability threshold shifted. What required a team is now within reach of one engineer who knows how to direct AI. That changes the math on everything your quality function can do.
