@@ -46,7 +46,7 @@ Plans:
 **Plans:** 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Create MDX stub and write force multiplier example (EXMP-01)
+- [x] 02-01-PLAN.md — Create MDX stub and write force multiplier example (EXMP-01)
 - [ ] 02-02-PLAN.md — Write blind spot example, pivot sentence, and fear narrative placeholder (EXMP-02, EXMP-03, ARG-02)
 
 ### Phase 3: Draft Pivot and Synthesis
@@ -91,7 +91,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Design Doc | 1/1 | Complete   | 2026-03-01 |
-| 2. Draft Examples | 0/2 | Planned | - |
+| 2. Draft Examples | 1/2 | In progress | - |
 | 3. Draft Pivot and Synthesis | 0/TBD | Not started | - |
 | 4. Draft Hook, Reframe, and Close | 0/TBD | Not started | - |
 | 5. Revision and Publication | 0/TBD | Not started | - |

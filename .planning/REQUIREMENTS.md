@@ -12,7 +12,7 @@
 
 ### Content — Examples
 
-- [ ] **EXMP-01**: Force multiplier example (FastAPI diagnostic service built in one week) rendered with full texture — timing, specifics, what it demonstrates
+- [x] **EXMP-01**: Force multiplier example (FastAPI diagnostic service built in one week) rendered with full texture — timing, specifics, what it demonstrates
 - [ ] **EXMP-02**: Blind spot example (AI testing its own assumptions, business logic incorrect) rendered with equal or greater depth than EXMP-01
 - [ ] **EXMP-03**: Pivot sentence connecting both examples — establishes why human quality thinking is irreplaceable
 
@@ -60,7 +60,7 @@
 |-------------|-------|--------|
 | PLAN-01 | Phase 1 | Complete |
 | PLAN-02 | Phase 1 | Complete |
-| EXMP-01 | Phase 2 | Pending |
+| EXMP-01 | Phase 2 | Complete |
 | EXMP-02 | Phase 2 | Pending |
 | EXMP-03 | Phase 2 | Pending |
 | ARG-02 | Phase 2 | Pending |
