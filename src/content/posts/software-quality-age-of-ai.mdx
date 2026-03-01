@@ -21,3 +21,21 @@ I had a laptop and a week.
 That is not primarily a story about speed. Speed matters, but it is not the point. The point is that I did something that was previously out of reach. Organizations that wanted this had to decide it was worth a significant engineering investment. One engineer building it in a week was not an option that existed.
 
 The capability threshold shifted. What required a team is now within reach of one engineer who knows how to direct AI. That changes the math on everything your quality function can do.
+
+## The Test Suite Said Green. The Business Logic Was Wrong.
+
+The code was clean. The tests passed. The CI pipeline completed in under three minutes and turned green. Everyone moved on.
+
+The service in question handled discount eligibility. A pricing rule in the product requirement said: customers who have maintained an active subscription for twelve consecutive months receive a fifteen percent discount on their next renewal. Simple. Clear. The kind of rule a business analyst writes in twenty minutes and a developer implements in an afternoon.
+
+We used AI to generate the service. We used the same AI session, the same context window, to generate the tests. The tests verified that the service correctly applied the discount to customers who had been subscribed for twelve months. They verified the no-discount case for customers under twelve months. They covered the edge at exactly twelve months. Coverage was at ninety-four percent. The reviewer approved it in ten minutes.
+
+The acceptance criteria tests caught it three days later. Written independently, from the product requirement document rather than from the service code, those tests asked a different question: what counts as twelve consecutive months? The product requirement was explicit. A lapse of more than seven days within that window breaks the streak. The customer must start over.
+
+The service we shipped did not know about lapses. Neither did any of the tests. The AI read "twelve consecutive months of active subscription" and interpreted it as "twelve months with an active subscription at the time of check." A plausible reading. A common pattern in subscription logic. Wrong.
+
+The tests confirmed what the code *did*. Not what the system was supposed to do.
+
+I've done this. I have shipped the green suite and closed the ticket and found out six weeks later that a business rule was implemented the way an AI model found plausible rather than the way the requirement specified.
+
+This is not one team's mistake. Every team using AI to generate code and tests from the same context is running this risk right now. The tests look comprehensive. The coverage numbers look good. What the same intelligence wrote both the code and the tests, the blind spots are not independent. They are perfectly correlated. Every assumption the code made, the tests encoded as correct behavior. You are not getting a second opinion. You are getting the same opinion twice.
