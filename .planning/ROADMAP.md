@@ -75,7 +75,7 @@ Plans:
 **Plans:** 1/1 plans complete
 
 Plans:
-- [ ] 04-01-PLAN.md — Write hook and close, assemble full draft (ARG-01, ARG-04)
+- [x] 04-01-PLAN.md — Write hook and close, assemble full draft (ARG-01, ARG-04)
 
 ### Phase 5: Revision and Publication
 **Goal**: Final post at 1700-1800 words, free of manifesto register violations, published to the blog
@@ -87,7 +87,10 @@ Plans:
   3. MDX file exists at `src/content/posts/` with correct metadata export (title, date, description)
   4. `npm run build` completes without errors
   5. Post appears on the blog listing page sorted correctly by date
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 05-01-PLAN.md — Expand synthesis and close sections to target word count, verify build and publication readiness (QUAL-01, QUAL-04, TECH-01, TECH-02, TECH-03)
 
 ## Progress
 
@@ -100,4 +103,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Draft Examples | 2/2 | Complete   | 2026-03-01 |
 | 3. Draft Pivot and Synthesis | 1/1 | Complete | 2026-03-01 |
 | 4. Draft Hook, Reframe, and Close | 1/1 | Complete   | 2026-03-01 |
-| 5. Revision and Publication | 0/TBD | Not started | - |
+| 5. Revision and Publication | 0/1 | Not started | - |
