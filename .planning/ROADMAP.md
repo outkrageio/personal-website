@@ -47,7 +47,7 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md — Create MDX stub and write force multiplier example (EXMP-01)
-- [ ] 02-02-PLAN.md — Write blind spot example, pivot sentence, and fear narrative placeholder (EXMP-02, EXMP-03, ARG-02)
+- [x] 02-02-PLAN.md — Write blind spot example, pivot sentence, and fear narrative placeholder (EXMP-02, EXMP-03, ARG-02)
 
 ### Phase 3: Draft Pivot and Synthesis
 **Goal**: The argument's resolution — quality systems thinking defined through three specific activities, arriving after the examples have earned the name
@@ -58,7 +58,10 @@ Plans:
   2. Three specific activities (designing quality gates, owning risk assessment, shifting left AND right) are present in the synthesis
   3. No hedging language, no "adapt or die" urgency rhetoric, no tool recommendations anywhere in the drafted sections
   4. The blind spot example occupies equal or greater word count than the force multiplier example
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 03-01-PLAN.md — Write quality systems thinking synthesis section (ARG-03, ARG-05, QUAL-02, QUAL-03)
 
 ### Phase 4: Draft Hook, Reframe, and Close
 **Goal**: A complete draft — hook that establishes the frame to be broken, reframe that states the thesis flatly, and a close that challenges rather than reassures
@@ -92,6 +95,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Design Doc | 1/1 | Complete   | 2026-03-01 |
 | 2. Draft Examples | 2/2 | Complete   | 2026-03-01 |
-| 3. Draft Pivot and Synthesis | 0/TBD | Not started | - |
+| 3. Draft Pivot and Synthesis | 0/1 | In progress | - |
 | 4. Draft Hook, Reframe, and Close | 0/TBD | Not started | - |
 | 5. Revision and Publication | 0/TBD | Not started | - |
