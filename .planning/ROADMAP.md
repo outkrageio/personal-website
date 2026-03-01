@@ -29,7 +29,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Both anchor examples appear in the outline with specific details sketched (FastAPI service timing, business logic discovery moment)
   3. Implementation plan exists with section-by-section writing approach and build order matching the research-recommended sequence (examples first, hook last)
   4. The thesis is stated as tension — opportunity AND risk, resolved by quality systems thinking — not as reassurance
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 01-01-PLAN.md — Write design doc and implementation plan for the blog post
 
 ### Phase 2: Draft Examples
 **Goal**: Two complete, fully-rendered example sections that work as standalone stories before surrounding argument is written
@@ -83,7 +86,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Design Doc | 0/TBD | Not started | - |
+| 1. Design Doc | 0/1 | Planning complete | - |
 | 2. Draft Examples | 0/TBD | Not started | - |
 | 3. Draft Pivot and Synthesis | 0/TBD | Not started | - |
 | 4. Draft Hook, Reframe, and Close | 0/TBD | Not started | - |
