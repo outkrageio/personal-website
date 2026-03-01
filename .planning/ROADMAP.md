@@ -12,7 +12,7 @@ This roadmap delivers a 1500-2000 word manifesto-style blog post for Kraig Britt
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Design Doc** - Lock argument structure, section sequencing, and key language before any prose is written
+- [x] **Phase 1: Design Doc** - Lock argument structure, section sequencing, and key language before any prose is written (completed 2026-03-01)
 - [ ] **Phase 2: Draft Examples** - Write the two anchor examples in full — they are the post's load-bearing content
 - [ ] **Phase 3: Draft Pivot and Synthesis** - Write the pivot sentence and quality systems thinking synthesis after examples are complete
 - [ ] **Phase 4: Draft Hook, Reframe, and Close** - Write opening and close last, when the destination and challenge are fully known
@@ -29,7 +29,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Both anchor examples appear in the outline with specific details sketched (FastAPI service timing, business logic discovery moment)
   3. Implementation plan exists with section-by-section writing approach and build order matching the research-recommended sequence (examples first, hook last)
   4. The thesis is stated as tension — opportunity AND risk, resolved by quality systems thinking — not as reassurance
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 - [ ] 01-01-PLAN.md — Write design doc and implementation plan for the blog post
@@ -86,7 +86,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Design Doc | 0/1 | Planning complete | - |
+| 1. Design Doc | 1/1 | Complete   | 2026-03-01 |
 | 2. Draft Examples | 0/TBD | Not started | - |
 | 3. Draft Pivot and Synthesis | 0/TBD | Not started | - |
 | 4. Draft Hook, Reframe, and Close | 0/TBD | Not started | - |

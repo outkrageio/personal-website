@@ -7,8 +7,8 @@
 
 ### Planning
 
-- [ ] **PLAN-01**: Design doc created in `docs/plans/` outlining post structure, thesis, section arguments, and narrative arc
-- [ ] **PLAN-02**: Implementation plan with section-by-section writing approach
+- [x] **PLAN-01**: Design doc created in `docs/plans/` outlining post structure, thesis, section arguments, and narrative arc
+- [x] **PLAN-02**: Implementation plan with section-by-section writing approach
 
 ### Content — Examples
 
@@ -58,8 +58,8 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| PLAN-01 | Phase 1 | Pending |
-| PLAN-02 | Phase 1 | Pending |
+| PLAN-01 | Phase 1 | Complete |
+| PLAN-02 | Phase 1 | Complete |
 | EXMP-01 | Phase 2 | Pending |
 | EXMP-02 | Phase 2 | Pending |
 | EXMP-03 | Phase 2 | Pending |
