@@ -42,6 +42,18 @@ This is not one team's mistake. Every team using AI to generate code and tests f
 
 The same force that let one engineer build a diagnostic service in a week is the same force that produced a test suite validating wrong behavior with ninety-four percent coverage. Velocity without human quality gates is the mechanism. The capacity to generate, to infer, to execute at speed, works in both directions. The opportunity and the risk share a source.
 
+## Quality Systems Thinking Is the Job Now
+
+Both of those stories describe the same gap. What separates a diagnostic service that worked from an eligibility service that shipped wrong is not technology. I was in both. The gap has a name: quality systems thinking.
+
+It is three things: designing quality gates, owning risk assessment, and shifting left AND right.
+
+You design quality gates. A gate is a human decision about what "done" means before generation starts. The acceptance criteria tests that caught the eligibility failure were a gate, written from the product requirement rather than from the code. They asked what "twelve consecutive months" meant and held the service to that answer. The diagnostic service worked because its confidence-ranked suggestions were also a gate: a human read them before anything acted. Gates are judgment calls about what questions to ask.
+
+You own risk assessment. The business stakes of a wrong discount rule are not a test suite metric. Real customers who met the requirement did not receive the discount they were owed. Which failures are catastrophic is a human judgment. That distinction requires business context AI does not have.
+
+You shift left AND right. Left means quality enters before code generation: acceptance criteria written from the requirement, lapse conditions named before the service interprets them. Right means quality continues after deployment: the diagnostic service is quality thinking extended into production telemetry, not a gate at merge. Most teams only hear "shift left." The AND right is what changes your role.
+
 {/* --- FEAR NARRATIVE PLACEHOLDER (to be integrated into hook in Phase 4) --- */}
 
 You've been thinking it. Not out loud, not clearly. A low hum underneath every sprint, every standup, every time a new AI tool gets announced and someone shares the link with a comment that is trying to be excited and cannot quite get there.
