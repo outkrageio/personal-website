@@ -18,10 +18,10 @@
 
 ### Content — Argument
 
-- [ ] **ARG-01**: Opening hook that drops reader into the professional moment before announcing thesis
+- [x] **ARG-01**: Opening hook that drops reader into the professional moment before announcing thesis
 - [x] **ARG-02**: Problem framing — the fear that AI replaces QA, acknowledged honestly
 - [x] **ARG-03**: Quality systems thinking named and defined AFTER examples earn it (not before)
-- [ ] **ARG-04**: Call to action that challenges reader to evolve, not just feel reassured
+- [x] **ARG-04**: Call to action that challenges reader to evolve, not just feel reassured
 - [x] **ARG-05**: Post reads as manifesto energy — assertive, direct, first-person authority
 
 ### Content — Quality
@@ -68,8 +68,8 @@
 | ARG-05 | Phase 3 | Complete |
 | QUAL-02 | Phase 3 | Complete |
 | QUAL-03 | Phase 3 | Complete |
-| ARG-01 | Phase 4 | Pending |
-| ARG-04 | Phase 4 | Pending |
+| ARG-01 | Phase 4 | Complete |
+| ARG-04 | Phase 4 | Complete |
 | QUAL-01 | Phase 5 | Pending |
 | QUAL-04 | Phase 5 | Pending |
 | TECH-01 | Phase 5 | Pending |
