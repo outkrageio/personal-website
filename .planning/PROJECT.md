@@ -2,7 +2,7 @@
 
 ## What This Is
 
-A manifesto-style blog post (1500-2000 words) arguing that AI doesn't replace quality professionals — it elevates them. Written for SDETs and quality engineers who are navigating the shift AI is bringing to their craft. Published on Kraig Britton's personal website as an MDX blog post.
+A published manifesto-style blog post (1,702 words) arguing that AI doesn't replace quality professionals — it elevates them. Written for SDETs and quality engineers navigating the shift AI is bringing to their craft. Published on Kraig Britton's personal website at /blog/software-quality-age-of-ai.
 
 ## Core Value
 
@@ -16,16 +16,18 @@ Convince quality professionals that their role is more important than ever — A
 - ✓ Blog listing and individual post pages — existing
 - ✓ Design doc process in docs/plans/ — existing
 - ✓ Dark theme with warm typography and prose styling — existing
+- ✓ Design doc outlining post structure, key arguments, and narrative arc — v1.0
+- ✓ Implementation plan with section-by-section writing approach — v1.0
+- ✓ MDX blog post with metadata (title, date, description) — v1.0
+- ✓ Post reads well at 1,702 words — v1.0
+- ✓ Manifesto tone — assertive, direct, call to action — v1.0
+- ✓ Two anchor examples woven into the argument — v1.0
+- ✓ Reader walks away feeling both reassured AND challenged to evolve — v1.0
 
 ### Active
 
-- [ ] Design doc outlining post structure, key arguments, and narrative arc
-- [ ] Implementation plan for the blog post
-- [ ] MDX blog post with metadata (title, date, description)
-- [ ] Post reads well at 1500-2000 word length
-- [ ] Manifesto tone — assertive, direct, call to action
-- [ ] Two anchor examples woven into the argument
-- [ ] Reader walks away feeling both reassured AND challenged to evolve
+- [ ] Social media summary/thread version of the post
+- [ ] Follow-up post with practical "quality systems thinking" framework
 
 ### Out of Scope
 
@@ -36,31 +38,18 @@ Convince quality professionals that their role is more important than ever — A
 
 ## Context
 
-**Post thesis:** The perception that AI will replace QA teams is wrong. AI shifts the job into quality systems thinking. With the ability to quickly automate tests and build tools, QA teams should be more empowered to evaluate quality — and it's more important than ever.
+Shipped v1.0 with 1,702 words of published prose plus 7,835 lines of planning artifacts.
+Tech stack: Next.js 16, MDX, Tailwind CSS v4, static export to Cloudflare Pages.
+Post live at /blog/software-quality-age-of-ai.
 
-**Two anchor examples:**
+**Post thesis:** AI shifts quality work into quality systems thinking — designing quality gates, owning risk assessment, shifting left AND right. The post uses two anchor examples (force multiplier and blind spot) to earn the framework before naming it.
 
-1. **AI as force multiplier:** Kraig built a FastAPI service in one week that ingests test results, logs, and historical trends, then uses AI to infer what went wrong when a test fails and proposes fix suggestions. This is a quality *system* — the kind of thing that would have taken a traditional team months. An SDET with AI built it in days.
-
-2. **AI as blind spot:** While vibe-coding a new service, the AI agent mocked up backend business logic in a way that made all AI-generated tests pass. It wasn't until tests were written from a different context — using real acceptance criteria — that the team discovered the business logic was fundamentally incorrect. The AI tested its own assumptions, not the actual requirements.
-
-**These two examples work as thesis and antithesis:** AI makes quality engineers more powerful (example 1), but only if humans remain the ones defining what quality means (example 2). Without quality thinking, AI creates an illusion of coverage.
-
-**Quality systems thinking includes:**
-- Designing quality gates — pipelines, observability, feedback loops (not just writing tests)
-- Owning risk assessment — deciding what to test deeply vs what AI-generated tests can cover
-- Shifting left AND right — quality embedded in design and production monitoring, not just pre-release
-
-**Audience:** Quality professionals broadly — SDETs, QA engineers, test leads, anyone in the quality space figuring out the future.
-
-**Tone:** Manifesto energy. More assertive than Kraig's typical reflective posts. A call to arms for the quality community.
-
-**Existing post pattern:** MDX files in `src/content/posts/`, metadata exported inline, design doc created first in `docs/plans/`.
+**Build approach validated:** Examples-first, hook-last build order produced a tighter argument than writing linearly. Design doc with declarative claim headers kept every phase aligned without re-reading prior prose.
 
 ## Constraints
 
 - **Format**: MDX blog post following existing conventions in `src/content/posts/`
-- **Length**: 1500-2000 words
+- **Length**: 1500-2000 words (landed at 1,702)
 - **Process**: Design doc first, then implementation plan, then post
 - **Static export**: Must work with Next.js static export — no dynamic features
 
@@ -68,9 +57,15 @@ Convince quality professionals that their role is more important than ever — A
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Manifesto tone over reflective | User wants assertive call to action, departure from usual style | — Pending |
-| Two-example structure | One showing opportunity, one showing risk — creates natural tension | — Pending |
-| Quality systems thinking as framework | Encompasses gates, risk assessment, shift left/right — not just automation | — Pending |
+| Manifesto tone over reflective | User wants assertive call to action, departure from usual style | ✓ Good — produced direct, practitioner-authority voice |
+| Two-example structure | One showing opportunity, one showing risk — creates natural tension | ✓ Good — escalation pivot connected them without reversal |
+| Quality systems thinking as framework | Encompasses gates, risk assessment, shift left/right — not just automation | ✓ Good — three activities wired to specific example details |
+| Examples-first build order | Hook works when the destination is known; synthesis can only be written after examples prove it | ✓ Good — research-confirmed, avoided thesis-first trap |
+| Declarative claim headers | Topic labels are skimmable; claims demand engagement | ✓ Good — each header stakes a position readers engage with |
+| ESCALATION pivot (not reversal) | "Yes, and" logic prevents bait-and-switch reader experience | ✓ Good — same force, different angle |
+| Business rule validation for blind spot | Domain-agnostic, closest to actual experience, no specialized knowledge required | ✓ Good — discount eligibility with lapse condition was specific and concrete |
+| Hook uses abstract register | "Floor of your role disappear" metaphor over specific capability moment | ✓ Good — stronger intimate resonance than naming test matrices |
+| Vacuum image for close | Design doc recommended, creates stronger inaction stakes than mirror image | ✓ Good — visceral stakes of professional vacuum |
 
 ---
-*Last updated: 2026-03-01 after initialization*
+*Last updated: 2026-03-01 after v1.0 milestone*
