@@ -72,7 +72,10 @@ Plans:
   2. Reframe states the thesis flatly within the first two paragraphs of the full post
   3. Call to action issues a directive and challenges the reader's professional identity — it does not comfort or reassure
   4. The full draft is assembled and reads as a continuous argument, not disconnected sections
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 04-01-PLAN.md — Write hook and close, assemble full draft (ARG-01, ARG-04)
 
 ### Phase 5: Revision and Publication
 **Goal**: Final post at 1700-1800 words, free of manifesto register violations, published to the blog
@@ -96,5 +99,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Design Doc | 1/1 | Complete   | 2026-03-01 |
 | 2. Draft Examples | 2/2 | Complete   | 2026-03-01 |
 | 3. Draft Pivot and Synthesis | 1/1 | Complete | 2026-03-01 |
-| 4. Draft Hook, Reframe, and Close | 0/TBD | Not started | - |
+| 4. Draft Hook, Reframe, and Close | 0/1 | Not started | - |
 | 5. Revision and Publication | 0/TBD | Not started | - |
