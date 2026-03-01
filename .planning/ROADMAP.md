@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 1/1 plans complete
 
 Plans:
-- [ ] 01-01-PLAN.md — Write design doc and implementation plan for the blog post
+- [x] 01-01-PLAN.md — Write design doc and implementation plan for the blog post
 
 ### Phase 2: Draft Examples
 **Goal**: Two complete, fully-rendered example sections that work as standalone stories before surrounding argument is written
@@ -43,7 +43,11 @@ Plans:
   2. Blind spot example (AI testing its own assumptions, business logic incorrect) is equal or greater length to Example 1 and captures the discovery moment — the green test suite, the confident CI output, the fundamentally wrong business logic
   3. A pivot sentence (1-3 sentences) connects both examples and acknowledges Example 1's power while introducing the condition that makes it real, without reading as a reversal
   4. The fear narrative (AI replaces QA) is named and acknowledged honestly before the reframe
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Create MDX stub and write force multiplier example (EXMP-01)
+- [ ] 02-02-PLAN.md — Write blind spot example, pivot sentence, and fear narrative placeholder (EXMP-02, EXMP-03, ARG-02)
 
 ### Phase 3: Draft Pivot and Synthesis
 **Goal**: The argument's resolution — quality systems thinking defined through three specific activities, arriving after the examples have earned the name
@@ -87,7 +91,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Design Doc | 1/1 | Complete   | 2026-03-01 |
-| 2. Draft Examples | 0/TBD | Not started | - |
+| 2. Draft Examples | 0/2 | Planned | - |
 | 3. Draft Pivot and Synthesis | 0/TBD | Not started | - |
 | 4. Draft Hook, Reframe, and Close | 0/TBD | Not started | - |
 | 5. Revision and Publication | 0/TBD | Not started | - |
