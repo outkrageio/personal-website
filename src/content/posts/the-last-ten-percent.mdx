@@ -11,15 +11,15 @@ It stood up in a fortnight.
 
 I don't mean a prototype held together with hope. I mean working code. Real tests — the kind that catch things, not the kind that exist to make a coverage number. A CI/CD pipeline wired end to end, so that a merged change was a deployed change, no ceremony in between. I remember watching the pipeline go green on the first full run and just sitting there for a second. I have been doing this long enough to know what two weeks used to buy you. Two weeks used to buy you a document and an argument about the document. This bought a running service.
 
-The demo went the way you'd hope. Nobody asked whether it would work — they could see it working. They asked when they could have it. Someone asked what else we could build this way, and it was a real question, not a polite one. I walked out of that meeting believing, sincerely, that the shape of my job had changed. I still believe that. Just not in the way I did that afternoon.
+The demo went the way you'd hope. Nobody asked whether it would work — they could see it working. They asked when they could have it. Someone asked what else we could build this way, and it was a real question, not a polite one. I walked out of that meeting believing, sincerely, that the shape of my job had changed. I still believe that.
 
-Because that was months ago, and I am still working on it. Not because it broke — it never really broke. Because of everything that comes after "it works": the refinements, the bug fixes, the interface that was exactly right until someone actually used it.
+But that was months ago, and I am still working on it. Not because it broke — it never really broke. Because of everything that comes after "it works": the refinements, the bug fixes, the interface that was exactly right until someone actually used it.
 
 The first 90% took 10% of the time. The last 10% took the rest.
 
 ## The Joke Became a Description
 
-There's an old line about this. Tom Cargill, at Bell Labs, put it this way — it ran in Jon Bentley's "Programming Pearls" column in Communications of the ACM in September 1985: "The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts for the other 90 percent of the development time."
+There's an old line about this. Tom Cargill, at Bell Labs, put it this way in 1985: "The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts for the other 90 percent of the development time."
 
 The ninety-ninety rule was a joke. It was built as one. The math doesn't work — that's the punchline — and it was a way engineers ribbed each other about optimism: you think you're almost done, you are not almost done, you have never once been almost done. Both nineties couldn't literally be true, and everyone laughing knew it. The rule wasn't a description of software so much as a description of us, of the specific, incurable hopefulness you need in order to start a project at all.
 
@@ -35,13 +35,13 @@ But that only sharpens the question the joke used to wave past. If the first 90 
 
 ## Knowing What Right Looks Like
 
-Start with what the long tail was actually made of. On my project it was mostly interface work — reworking screens after real people had touched them. And here is the thing about that work in the age of the model: I was never once waiting on a candidate. I could ask for another version of a screen and have it before my coffee cooled. Another after that. Ten, if I wanted, each one plausible, each one defensible, each one the kind of thing you could put in front of a room without embarrassment.
+Start with what the long tail was actually made of. On my project it was mostly interface work — reworking screens after real people had touched them. And here is the thing about that work in the age of the model: I was never once waiting on a candidate. I could ask for another version of a screen and have it almost instantly. Another after that. Ten, if I wanted, each one plausible, each one defensible, each one the kind of thing you could put in front of a room without embarrassment.
 
 One of them I nearly shipped. A dashboard-style landing view, and it demoed beautifully — status up top, recent activity summarized, everything a screenshot could want. It survived right up until I watched someone actually use it. The one action people opened the tool to do, the thing they reached for a dozen times a day, sat two clicks down, underneath everything that merely looked important. The layout was organized around what the tool knew instead of what the person wanted. Nothing about it was broken. It was just wrong.
 
 Finding that wrongness was the slow part. Not generating the fix — the fix took minutes once I could name the problem. The slow part was the naming. Knowing which of the plausible candidates is correct, and being able to articulate why the current one isn't, is a different kind of work from producing candidates, and it runs at a different speed. It runs at the speed of noticing: of sitting with a vague dissatisfaction until it resolves into a sentence you can act on.
 
-The model never made that faster. It couldn't. It could hand me options at any rate I cared to ask for them, but choosing among options was still mine, and it happened at exactly the speed it has always happened — human speed. Judgment turned out to be the bottleneck the whole time; the flood of candidates just made it visible.
+The model never made that faster. It couldn't. It could hand me options at any rate I cared to ask for them, but choosing among options was still mine, and it happened at exactly the speed it has always happened — my speed. Judgment turned out to be the bottleneck the whole time; the flood of candidates just made it visible.
 
 That's the first thing in the long tail that refuses to compress. Generation scaled; discernment didn't.
 
@@ -51,7 +51,7 @@ The second thing is simpler, and it was never mine to speed up: refinement neede
 
 Loops like that run on the calendar. Shipping was never the slow part — I could turn a request into a deployed change in an hour, sometimes less. Then the waiting started. The team had work of their own; nobody was refreshing my tool to evaluate the latest tweak. Days would pass. Then a comment in a standup, half a sentence — "oh, it still does that thing with the search." Or a chat thread would drift my way, three messages deep in someone else's conversation, describing a friction I would never have found alone. I'd fix it that afternoon. Then the loop reset, and the waiting began again.
 
-That was the actual tempo of the long tail. Not tokens per second — meetings per week. I could generate at any rate I liked, but whether the last change had actually landed, whether it helped or just moved the annoyance somewhere new, only surfaced when a person had time to bump into the software and mention it. The machine's cycle time is seconds; the loop's cycle time is people.
+That was the actual tempo of the long tail. I could generate at any rate I liked, but whether the last change had actually landed, whether it helped or just moved the annoyance somewhere new, only surfaced when a person had time to bump into the software and mention it. The machine's cycle time is seconds; the loop's cycle time is people.
 
 I never found a way to compress this. You cannot prompt your way past a week of waiting to watch someone use the thing. The model made every lap around the loop cheap — but a loop's speed isn't set by its fastest leg. It's set by its slowest. And the slowest leg was always someone else's Tuesday.
 
@@ -63,7 +63,7 @@ The clearest case was a feature the team asked for by name. They described it pr
 
 The reflex here is to call this scope creep and reach for discipline: tighter requirements, better specs, firmer nos. I don't think that's what happened. Nobody was careless. This is just how anyone finds out what they actually want — not by imagining it in a document, but by reacting to something real. You can't front-load that discovery, because the thing being discovered doesn't exist yet. Each version of the tool taught us what the next version was for.
 
-Which means part of the last 10 percent isn't refinement at all. It's finding out what the product is. The model collapsed the distance to something real — a fortnight instead of a quarter, an afternoon instead of a sprint. What it couldn't collapse is what happens on the far side of real: people living with the thing, reacting, revising what they meant. AI compresses the time to something real. It doesn't compress the reacting.
+Part of the last 10 percent, then, isn't refinement at all. It's finding out what the product is. The model collapsed the distance to something real — a fortnight instead of a quarter. What it couldn't collapse is what happens on the far side of real: people living with the thing, reacting, revising what they meant. AI compresses the time to something real. It doesn't compress the reacting.
 
 ## The Job Now
 
@@ -71,7 +71,7 @@ Line the three up and they rhyme. Judgment moves at the pace of a person sitting
 
 Which is why I've stopped saying my job shrank. Wrong verb. What happened is closer to distillation. The parts the model absorbed — the boilerplate, the plumbing, the wiring of pipelines, the first draft of everything — turn out to have been, in retrospect, scaffolding. Necessary. Time-consuming. Never the point. Boil all of that off and what remains is concentrated: the part of engineering that was always hardest, no longer diluted by the parts that were merely long.
 
-What remains is the extra mile. Taste. Judgment. Sitting with users long enough to hear the friction nobody would bother filing a ticket about. Knowing — not hoping, knowing — when a thing is actually done. None of that is new. Those were always the skills that separated shipping from demoing; anyone who has ever inherited a "basically finished" project knows the width of the gap between the two. What's new is the proportion. These skills used to be the last chapter of the job. Now they're most of the book.
+What remains is the extra mile: taste, judgment, sitting with users long enough to hear the friction nobody would bother filing a ticket about. Knowing — not hoping, knowing — when a thing is actually done. None of that is new. Those were always the skills that separated shipping from demoing; anyone who has ever inherited a "basically finished" project knows the width of the gap between the two. What's new is the proportion. These skills used to be the last chapter of the job. Now they're most of the book.
 
 The ninety-ninety rule used to be a complaint about our estimates; now it reads like a job description.
 
