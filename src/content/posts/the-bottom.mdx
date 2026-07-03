@@ -1,0 +1,120 @@
+export const metadata = {
+  title: "The Bottom",
+  date: "2026-04-14",
+  description:
+    "Measurement becomes ranking. Ranking becomes fear. And the bottom is structural — no matter how fast you run.",
+};
+
+I keep noticing the same thing. A new kind of dashboard is shipping.
+
+It doesn't measure code quality or delivery health or team velocity. It doesn't care whether the build is green or whether the incident got resolved. It measures *you*, against the person sitting next to you.
+
+The developer analytics platforms we've had for years — the ones that used to count deploys and track cycle time — are quietly pivoting. Their sales decks have a new slide. The slide shows an engineer's face and a number next to it, and a leaderboard stretching down the page. The pitch is no longer "help your team deliver faster." The pitch is "see who on your team is actually using the agents, and how much they're shipping, and how they compare." The category has a name now. AI productivity scoring. It is being sold into engineering organizations right now, and some of them are buying.
+
+This is not speculation. This is a sales motion. There are demos. There are case studies. There are VPs of engineering quoted on the landing pages saying the rollout went great.
+
+I want to write down what I think this becomes, because I've watched enough of these patterns to recognize the shape of one before it finishes forming. And the shape of this one is sharp.
+
+The thesis is a single sentence. *Someone always has to be last.*
+
+## The Measurement Was Always the Trap
+
+There's a small-sounding move that is the whole trap. It is the move from *measuring your work* to *comparing your work to the person next to you*. It sounds like a difference of degree. It is a difference of kind.
+
+When your agent helps you debug a gnarly migration at two in the morning, and the logs of that session stay on your machine, the agent is a tool. It is yours. It exists to make you better at your job. When those same logs leave your machine and land in a dashboard that someone else reads — your manager, your VP, a system that ranks you against your team — the nature of the thing has changed. It is the same software. The gravitational pull is different. It is no longer helping you. It is grading you, and then comparing the grade.
+
+The distinction matters because absolute measurement is at least coherent. "You wrote three thousand lines of tested, reviewed code last month" is a fact. It may be a useless fact — lines of code are famously terrible as a signal — but it is at least a neutral one. You can be measured against yourself. You can improve. You can get better at the thing the measurement is measuring.
+
+Relative ranking is a different object entirely. It is not a measurement. It is a competition. And a competition has a structural requirement that a measurement does not: it needs a winner, and it needs a loser. No matter how well everyone performs, the ranking has to resolve. Someone is on top. Someone is on the bottom. That is not a side effect. That is the whole function.
+
+Every productivity dashboard ever built, in any industry, has followed this path. Call center operator of the month. Sales leaderboard. Warehouse picker rate. The measurement comes first, framed as neutral. Then the comparison. Then the ranking. Then the public ranking. Then the consequences attached to the public ranking. The sequence is not a conspiracy. It is a gradient. Each step looks reasonable from the step before it.
+
+Once you have added the second monitor — the one that compares you to the person at the desk beside you — you do not go back. No organization in history has voluntarily given up a ranking system once it was installed. Not because the rankings worked. Because giving them up would mean admitting they didn't.
+
+## Sold as Fair
+
+The word to watch is *objective*.
+
+Anyone who tells you the new system is objective is telling you it is a ranking system and hoping you will not notice. The fairness framing is not an accident. It is the thing that makes this sellable. Of course you want fair measurement. Of course you are tired of performance reviews that hinge on whether your manager remembers your good quarter or your bad one. Of course you are tired of politics, personality, the guy who gets promoted because he sits near the VP at lunch. The pitch for AI productivity scoring is aimed at that exhaustion, and the exhaustion is real.
+
+*Data-driven.* *Blind to bias.* *Meritocratic.* *Objective.* Each one is the same trick wearing a different outfit. They all promise the same thing, which is that the machine will see you clearly, and because the machine has no friends and no lunch preferences, it will treat you fairly.
+
+It is a persuasive pitch. It is persuasive because it is partly true. The machine will, in fact, not care whether you sit near the VP at lunch. It will tally your commits and your reviews and your agent sessions and your tickets closed and your lines shipped, and it will produce a number, and the number will be the same for everyone.
+
+And then it will rank the numbers.
+
+That is where the fairness stops being fair. A neutral measurement, ranked, is no longer neutral. It has been transformed into a tool for sorting people. The sorting is what the buyer is paying for. The neutral measurement was just the thing that made the sorting defensible — the fig leaf the HR team can point at when the lawsuit comes. "The system is objective. The metrics are clear. The rankings speak for themselves." They do not. They speak for whoever chose what to measure, and whoever chose where to cut.
+
+The vendors selling these tools are not lying, exactly. They have convinced themselves that they are building fairness, and in a narrow sense they are. What they are also building, downstream, is a system in which ten percent of the team gets cut every quarter, and the ten percent that gets cut are the ten percent the system says are worst, and the system is not accountable to anyone because the system is *objective*.
+
+That is the trick. Fair measurement and comparative ranking are not the same thing. The pitch blurs them on purpose. The blur is how the product sells.
+
+## The Scare Factory
+
+There is a scene in Monsters Inc. that most of us have watched.
+
+It is the scare floor. The scarers go through the closet doors, collect their screams, and return. Above them, on a massive board visible to the entire factory, their totals are displayed in real time. Sulley is on top. Randall is second. When Sulley pulls ahead, the floor erupts. Applause. Cheers. The number goes up and the workers celebrate and the audience — the five-year-olds in the theater — cheer with them, because Sulley is the hero and heroes are supposed to be first.
+
+I have thought about that scene a lot lately.
+
+We watched that movie as kids and thought the joke was the monsters. The joke was the factory.
+
+The joke was that the entire workplace had been organized around a public, real-time ranking of individual output. The joke was that the scarers did not work for Monsters Incorporated. They worked for the board. Every scream was a number, and every number was a rank, and every rank was a reason to come in tomorrow and scare harder. The scarers at the bottom of that board did not make it into the shot. They did not need to. The movie was not about them. The movie was about the guy at the top.
+
+We are building the board. We think we are building productivity tools. We are building the board.
+
+## What Fear Does to a Week
+
+Here is the scene I keep imagining.
+
+It is Saturday morning. The coffee is on. Nobody has asked you to work. There is no email waiting, no Slack ping, no manager leaning over your shoulder. The house is quiet. Your kid is watching cartoons in the next room. Your partner is still asleep.
+
+You open the laptop.
+
+Nobody made you. Nobody will know. You are not billing these hours. You are not going to put them on a timesheet. You are opening the laptop because you remember what the dashboard looked like on Friday afternoon, and you remember the name directly below yours, and you can feel the weekend slipping through your fingers if you do not close the gap. You are not working because you are being watched. You are working because you cannot stop looking.
+
+This is the thing that the fairness pitch does not mention. A system does not need to be coercive to reshape a life. It only needs to be visible.
+
+The dashboard updates on Monday. That means PTO is a risk. A week off is a week of your competitors climbing the board while you are standing still. Holidays are a risk. Thanksgiving is a risk. Your kid's recital is a risk, because the recital is on a Thursday evening and the two hours you spend there are two hours you did not spend shipping. The doctor's appointment you keep rescheduling is a risk. The dinner with your parents is a risk. The vacation you promised your partner is a larger risk.
+
+Nobody will tell you not to go. The language around the dashboard will be explicit about this. *Of course you should take your PTO. We encourage it.* The encouragement will be genuine. The managers saying it will mean it. And you will nod and smile and not take your PTO, because the dashboard does not care what the managers say. The dashboard updates on Monday, and you know what it is going to show.
+
+You will work through your vacation from the hotel room. Your partner will understand the first time and be quieter the second time and stop saying anything by the third. You will miss the recital. You will reschedule the appointment again.
+
+None of this will feel like surveillance, because none of it is being done to you. You are doing it to yourself. That is the part that works. That is the part that is new. The old panopticon needed a guard in the tower. The new one needs a dashboard and a number, and you will stare at it on Saturday morning, and nobody will have to do anything at all.
+
+## The Bottom Is Structural
+
+Here is the part of this I cannot stop thinking about.
+
+If the policy is "cut the bottom ten percent every quarter," then ten percent of the team gets cut every quarter. Forever. No matter how good the team is.
+
+Sit with that for a second. It is so obvious that it is easy to miss. The ranking is relative. *Relative* is the whole word. It does not measure whether the team is good. It measures where each person falls inside the team. That means the policy is not "cut the engineers who are bad at their job." The policy is "cut the engineers who are, this quarter, least good at their job relative to the other engineers on their team." Those are not the same sentence.
+
+If everyone on the team is excellent, ten percent of the excellent get cut. If everyone on the team is working harder than they have ever worked, ten percent of those people still get cut. You cannot outrun it by running faster, because the cutoff moves with you. The whole team can improve and the bottom ten percent still exists. That is what relative means.
+
+This is not a bug. This is what the math says. The dashboard is doing exactly what it was built to do.
+
+The only way to not be at the bottom is to make sure someone else is. The system does not reward getting better. It rewards getting better *than the person next to you*. Those are different motivations and they produce different behavior. The first makes you study. The second makes you hope the person next to you does not study. The first makes colleagues into teammates. The second makes them into competitors who smile at you in meetings and hope you have a rough quarter.
+
+None of this is new. Stack ranking has been tried before. It has been abandoned before, by companies that were famous for it, for exactly these reasons. Microsoft ran it for years and it nearly broke them. The research on its effects is not ambiguous. People hoarded information. They sabotaged each other. They declined to help teammates because a teammate's success was, mechanically, their loss. Every time a large company has tried it, the same patterns have shown up, and eventually the company has admitted that the cost exceeded the benefit and quietly shut it down.
+
+What is new is that the measurement is now cheap, continuous, and invisible. The old stack rank required a manager and a meeting, and the meeting gave people a moment to push back. A manager could fight for a report they believed in. A VP could veto a list. There was friction in the process, and the friction sometimes saved people. The new version has no meeting. It has no manager recommendation and no VP veto. It runs while you sleep. It updates on Monday. And when the cut list comes out, the list will not be the product of a judgment anyone is willing to defend. It will be the product of a number, generated objectively, that nobody is responsible for.
+
+## The Choice
+
+Here is the part nobody seems to want to say out loud.
+
+The engineers being measured by these dashboards are, overwhelmingly, the same engineers being asked to build them. The scoring pipelines. The ranking algorithms. The features that pull agent telemetry out of the IDE and send it up to a central service. The dashboards that display it. The permission models that decide which managers get to see which comparisons. Every one of these is a feature in a sprint somewhere, assigned to an engineer, with a ticket and acceptance criteria and a deadline. Someone is building it right now.
+
+That someone is going to be in a planning meeting. Maybe this quarter. Maybe next. Someone is going to describe the feature — carefully, in the neutral voice of engineering requirements — and the engineer listening is going to recognize it. They will know exactly what they are being asked to build. And they will have about thirty seconds to decide what kind of engineer they are.
+
+Thirty seconds is not a long time. It is not long enough to workshop a position. It is not long enough to read the ethics literature or get coffee with a mentor or write a thoughtful doc. It is only long enough to know whether you already have a position, or whether you do not.
+
+I am not going to tell you what to do in that meeting. I do not know your bills. I do not know your visa situation. I do not know whether you are the only income in your house or whether your partner is pregnant or whether you just bought a car you cannot return. People make different choices under different pressures, and the point of this essay is not to judge those choices. The point is that the choice will exist, and the choice will be yours, and pretending the choice does not exist is itself a choice.
+
+Tristan Harris, of the Center for Humane Technology, has a line about the tools we are building. He says, in various forms, that anti-human tools build an anti-human future. The line is not subtle, and I have always found it a little bit too neat, and I cannot stop thinking about it anyway. Because the dashboard we are discussing is not, in any serious sense, a tool that serves the person using it. It is a tool that grades the person using it, in order to rank the person using it, in order to cut the person using it. If that is not an anti-human tool, the phrase does not mean anything.
+
+We are past the point where "I just build what they ask me to build" is an answer. That answer was always a little thin, and it has been getting thinner for a while, and I think the dashboard is where it snaps.
+
+The dashboard is being built in a branch somewhere right now. Someone is going to push it. The only open question is who.
