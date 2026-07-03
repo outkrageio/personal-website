@@ -4,19 +4,19 @@ export const metadata = {
   description: "Jira, sprint planning, and story points were built for a world that doesn't exist anymore. Here's what replaces them.",
 };
 
-I was in a sprint planning meeting last week. An hour and a half. Eight engineers, a product manager, and a scrum master on a Zoom call, cameras mostly off, estimating story points for work that hadn't started yet.
+Here's how it used to work.
 
-Fifteen minutes in, we got to a ticket I'd been thinking about. "Refactor the notification service to support batched delivery." The PM read the acceptance criteria. The scrum master asked for estimates. Someone said five points. Someone else said eight. A brief debate about whether the database migration counted as part of this ticket or should be broken out. The scrum master pulled up the Fibonacci reference card. We settled on eight.
+Sprint planning meeting. An hour and a half. Eight engineers, a product manager, and a scrum master on a Zoom call, cameras mostly off, estimating story points for work that hadn't started yet. The PM would read acceptance criteria for a ticket. The scrum master would ask for estimates. Someone would say five points. Someone else would say eight. A brief debate about whether the database migration counted as part of this ticket or should be broken out. The scrum master would pull up the Fibonacci reference card. We'd settle on eight.
 
-I had already built it.
+Then you'd go build it. Over the next week and a half, you'd ramp up on the codebase, figure out the approach, write the code, write the tests, open the PR, address review comments, and merge. The estimate would turn out to be roughly wrong, as estimates always are, but close enough that the sprint velocity chart moved in a direction that made someone's dashboard look reasonable. The system worked, more or less, because building the thing was the slow part. Planning and tracking were overhead, but justified overhead, because the thing being tracked was expensive.
 
-Not the whole thing. But I'd spent forty minutes the night before talking through the approach with an agent, refining a plan, and letting it generate a working prototype. The core logic was done. The migration was written. I'd reviewed the output and it was solid. What remained was integration testing and a PR. Maybe two hours of work.
+That math doesn't hold anymore.
 
-I sat through the next seventy-five minutes of that meeting knowing the estimate was meaningless, the discussion was theater, and the Jira board we were so carefully grooming would be outdated before the sprint started. I alt-tabbed and kept working.
+I can spend forty minutes talking through an approach with an agent, refining a plan, and letting it generate a working prototype. The core logic, done. The migration, written. Reviewed, solid. What remains is integration testing and a PR. Maybe two hours of work. The thing that used to take a sprint takes an afternoon.
 
-That meeting cost the company roughly two thousand dollars in engineering salaries. It produced a set of story point estimates that bore no relationship to how long the work would actually take, organized in a tool that nobody on the team uses as their actual source of truth. But the dashboard looked great. Somebody's OKR was being served.
+But the meetings haven't changed. The ceremonies haven't changed. The Jira board is still being groomed. The story points are still being debated. An hour-and-a-half planning session still costs the company roughly two thousand dollars in engineering salaries, and it still produces a set of estimates that bear no relationship to how long the work will actually take, organized in a tool that nobody on the team uses as their actual source of truth. The dashboard looks great. Somebody's OKR is being served.
 
-This is the moment I'm writing about. Not the big existential question of AI replacing engineers. The smaller, more immediate, more fixable problem: the processes we use to organize engineering work are designed for a world that no longer exists, and every day we keep performing them is a day we're slower than we need to be.
+This is what I'm writing about. Not the big existential question of AI replacing engineers. The smaller, more immediate, more fixable problem: the processes we use to organize engineering work were designed for a world that no longer exists, and every day we keep performing them is a day we're slower than we need to be.
 
 ## These Processes Were Built for a Different Bottleneck
 
