@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | Kraig Britton",
+  title: "Contact",
+  description: "Get in touch with Kraig Britton.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 const contacts = [
@@ -38,31 +42,32 @@ const contacts = [
 
 export default function ContactPage() {
   return (
-    <div>
-      <p className="text-sm font-medium uppercase tracking-widest text-teal-600">
+    <div className="stagger">
+      <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent">
         Contact
       </p>
-      <h1 className="mt-2 text-3xl font-bold tracking-tight text-stone-900">
+      <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl tracking-tight text-foreground">
         Get in Touch
       </h1>
-      <p className="mt-4 text-stone-500">
+      <p className="mt-4 text-muted">
         Feel free to reach out &mdash; I&apos;m always happy to connect.
       </p>
-      <div className="mt-8 space-y-3">
+      <div className="accent-line mt-6 w-16" />
+      <div className="mt-10 space-y-3">
         {contacts.map(({ label, href, display, icon }) => (
           <a
             key={label}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm ring-1 ring-stone-200/60 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+            className="card-hover group flex items-center gap-5 rounded-lg border border-border bg-surface p-5 overflow-hidden transition-all duration-300"
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+            <span className="flex h-10 w-10 items-center justify-center rounded-md border border-border text-muted transition-colors duration-300 group-hover:border-accent/40 group-hover:text-accent">
               {icon}
             </span>
             <div>
-              <p className="text-sm font-semibold text-stone-900">{label}</p>
-              <p className="text-sm text-stone-500">{display}</p>
+              <p className="text-sm font-medium text-foreground">{label}</p>
+              <p className="text-sm text-muted/60">{display}</p>
             </div>
           </a>
         ))}

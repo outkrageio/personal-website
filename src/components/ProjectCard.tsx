@@ -2,14 +2,18 @@ import type { Project } from "@/lib/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-stone-200/60 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
-      <h3 className="text-lg font-semibold text-stone-900">{project.title}</h3>
-      <p className="mt-2 text-sm text-stone-500">{project.description}</p>
+    <div className="card-hover rounded-lg border border-border bg-surface p-6 overflow-hidden transition-all duration-300">
+      <h3 className="font-[family-name:var(--font-display)] text-xl text-foreground">
+        {project.title}
+      </h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted">
+        {project.description}
+      </p>
       <div className="mt-3 flex flex-wrap gap-2">
         {project.tech.map((t) => (
           <span
             key={t}
-            className="rounded-full bg-teal-50 px-2.5 py-0.5 text-xs font-medium text-teal-700"
+            className="rounded-md border border-border bg-background px-2.5 py-0.5 font-mono text-xs text-accent"
           >
             {t}
           </span>
@@ -22,7 +26,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-teal-600 transition-colors hover:text-teal-700"
+              className="text-sm font-medium text-accent transition-colors duration-200 hover:text-accent-hover"
             >
               Live Site
             </a>
@@ -32,7 +36,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               href={project.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-teal-600 transition-colors hover:text-teal-700"
+              className="text-sm font-medium text-accent transition-colors duration-200 hover:text-accent-hover"
             >
               Source Code
             </a>

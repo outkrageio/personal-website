@@ -14,12 +14,15 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="border-b border-stone-200 bg-white">
-      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-semibold text-stone-900">
+    <header className="border-b border-border/60 backdrop-blur-sm bg-background/80 sticky top-0 z-40">
+      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-5">
+        <Link
+          href="/"
+          className="font-[family-name:var(--font-display)] text-xl text-foreground tracking-tight transition-colors hover:text-accent"
+        >
           Kraig Britton
         </Link>
-        <nav className="flex gap-6">
+        <nav className="flex gap-7">
           {navLinks.map(({ href, label }) => {
             const isActive =
               href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -27,10 +30,10 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
-                className={`text-sm transition-colors ${
+                className={`text-sm tracking-wide transition-colors duration-200 ${
                   isActive
-                    ? "font-medium text-teal-600"
-                    : "text-stone-500 hover:text-stone-900"
+                    ? "text-accent font-medium"
+                    : "text-muted hover:text-foreground"
                 }`}
               >
                 {label}

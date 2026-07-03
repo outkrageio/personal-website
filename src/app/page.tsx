@@ -1,16 +1,38 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE_URL, jsonLdString } from "@/lib/site";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Kraig Britton",
+  jobTitle: "Staff Engineer",
+  url: SITE_URL,
+  sameAs: ["https://github.com/outkrageio"],
+};
 
 export default function Home() {
   return (
-    <div>
-      <div className="mb-12">
-        <p className="text-sm font-medium uppercase tracking-widest text-teal-600">
+    <div className="stagger">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdString(personJsonLd) }}
+      />
+      <div className="mb-16">
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent">
           Staff Engineer
         </p>
-        <h1 className="mt-2 text-4xl font-bold tracking-tight text-stone-900">
+        <h1 className="mt-3 font-[family-name:var(--font-display)] text-5xl tracking-tight text-foreground sm:text-6xl">
           Kraig Britton
         </h1>
-        <p className="mt-4 text-lg leading-relaxed text-stone-500">
+        <div className="accent-line mt-6 w-24" />
+        <p className="mt-6 text-base leading-[1.8] text-muted max-w-2xl">
           14 years building software at companies of every size, from
           early-stage startups to enterprise giants like VMware. I specialize in
           quality engineering, building internal tools that make
@@ -20,24 +42,24 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="space-y-8">
-        <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-stone-200/60">
-          <h2 className="flex items-center gap-2 text-lg font-semibold text-stone-900">
-            <span className="inline-block h-2 w-2 rounded-full bg-teal-500" />
+      <div className="space-y-5">
+        <div className="card-hover rounded-lg border border-border bg-surface p-6 overflow-hidden">
+          <h2 className="flex items-center gap-3 font-[family-name:var(--font-display)] text-xl text-foreground">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
             At Home
           </h2>
-          <p className="mt-3 leading-relaxed text-stone-500">
+          <p className="mt-3 leading-[1.8] text-muted text-sm">
             Husband and father to two daughters. They are better at keeping me
             busy than any on-call rotation ever was.
           </p>
         </div>
 
-        <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-stone-200/60">
-          <h2 className="flex items-center gap-2 text-lg font-semibold text-stone-900">
-            <span className="inline-block h-2 w-2 rounded-full bg-teal-500" />
+        <div className="card-hover rounded-lg border border-border bg-surface p-6 overflow-hidden">
+          <h2 className="flex items-center gap-3 font-[family-name:var(--font-display)] text-xl text-foreground">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
             Off the Grid
           </h2>
-          <p className="mt-3 leading-relaxed text-stone-500">
+          <p className="mt-3 leading-[1.8] text-muted text-sm">
             When I&apos;m not at a keyboard I&apos;m usually somewhere in the
             woods of eastern Oregon. Hunting, fishing, camping, or riding my
             quad through terrain that would void most warranties. At home I stay
@@ -47,24 +69,24 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-stone-200/60">
-          <h2 className="flex items-center gap-2 text-lg font-semibold text-stone-900">
-            <span className="inline-block h-2 w-2 rounded-full bg-teal-500" />
+        <div className="card-hover rounded-lg border border-border bg-surface p-6 overflow-hidden">
+          <h2 className="flex items-center gap-3 font-[family-name:var(--font-display)] text-xl text-foreground">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
             Writing
           </h2>
-          <p className="mt-3 leading-relaxed text-stone-500">
+          <p className="mt-3 leading-[1.8] text-muted text-sm">
             I write about software engineering, the shifting nature of the craft,
             and lessons picked up along the way. Check out my{" "}
             <Link
               href="/blog"
-              className="font-medium text-teal-600 underline decoration-teal-600/30 transition-colors hover:text-teal-700 hover:decoration-teal-700"
+              className="text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:text-accent-hover hover:decoration-accent-hover"
             >
               blog
             </Link>{" "}
             or take a look at my{" "}
             <Link
               href="/portfolio"
-              className="font-medium text-teal-600 underline decoration-teal-600/30 transition-colors hover:text-teal-700 hover:decoration-teal-700"
+              className="text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:text-accent-hover hover:decoration-accent-hover"
             >
               portfolio
             </Link>{" "}
@@ -73,16 +95,16 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-10 flex gap-4">
+      <div className="mt-12 flex gap-4">
         <Link
           href="/portfolio"
-          className="rounded-lg bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-teal-700 hover:shadow-md"
+          className="group relative rounded-md bg-accent px-6 py-3 text-sm font-medium text-background tracking-wide transition-all duration-300 hover:bg-accent-hover hover:shadow-lg hover:shadow-accent/10"
         >
           View Portfolio
         </Link>
         <Link
           href="/contact"
-          className="rounded-lg bg-white px-5 py-2.5 text-sm font-medium text-stone-600 shadow-sm ring-1 ring-stone-200/60 transition-all hover:bg-stone-50 hover:shadow-md"
+          className="rounded-md border border-border px-6 py-3 text-sm font-medium text-muted tracking-wide transition-all duration-300 hover:border-border-light hover:text-foreground"
         >
           Get in Touch
         </Link>
