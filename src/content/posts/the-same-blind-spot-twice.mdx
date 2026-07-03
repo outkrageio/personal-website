@@ -1,0 +1,236 @@
+export const metadata = {
+  title: "The Same Blind Spot Twice",
+  date: "2026-02-23",
+  description: "When AI writes your code and your tests, it makes the same mistakes in both. Your green test suite might be lying to you.",
+};
+
+Picture this. You ask an agent to build a meeting scheduler. Nothing fancy. Users pick a time, other users get notified, the meeting shows up on everyone's calendar. Bread and butter feature for any collaboration tool.
+
+The agent builds it in about twenty minutes. Clean code. Good separation of concerns. Proper error handling. You ask it to write end-to-end tests. It produces twelve of them. They cover the happy path, the error cases, the edge cases you would have thought of, and a few you wouldn't have. Every single test passes. Green across the board. You feel like a genius for not writing any of it yourself.
+
+You ship it.
+
+Three days later, a user in Tokyo reports that all their meetings are showing up at the wrong time. Not off by a random amount. Off by exactly nine hours. Every meeting, every time, perfectly consistent. The kind of consistency you'd actually want from your software, if it weren't consistently wrong.
+
+You go back and look at the code. The agent stored all timestamps in UTC but displayed them using the server's timezone instead of the user's. Classic bug. The kind of thing you'd catch in a code review if you were looking for it. You weren't looking for it, because the tests were green.
+
+Then you look at the tests. Every single one of them creates meetings and verifies the displayed time. Every single one of them passes. And every single one of them runs in an environment where the server timezone and the "user's" timezone are the same: UTC. The tests aren't wrong in the way a sloppy test is wrong, where you forgot to assert something. They're thorough. They check the right fields. They verify the right behavior. They just verify the wrong *definition* of correct.
+
+The agent that wrote the code misunderstood the requirement. The agent that wrote the tests misunderstood it in the exact same way. Same model, same context, same blind spot. The tests didn't miss the bug by accident. They missed it by design.
+
+This is the failure mode nobody's talking about. We've all internalized a basic assumption about tests: if they pass, the code is probably right. If they're thorough, the code is probably correct at the edges. If coverage is high, the important paths are probably verified.
+
+None of that holds when the same intelligence that wrote the code also wrote the tests. You're not getting a second opinion. You're getting the same opinion twice, delivered with absolute confidence both times.
+
+## How Correlated Failures Work
+
+The timezone bug wasn't a fluke. It's a pattern. And once you see it, you start seeing it everywhere.
+
+The mechanism is simple. When an AI model generates code, it builds a mental model of the requirements from the context you've given it. When you then ask the same model, in the same session, with the same context, to write tests for that code, it builds its test cases from the same mental model. If that mental model is wrong, both the code and the tests are wrong in the same direction. The tests pass not because the code is correct, but because the tests share the code's definition of correct.
+
+This is fundamentally different from a test that's simply incomplete. An incomplete test leaves gaps. A correlated test actively confirms the wrong behavior. It looks at the bug and says "yes, this is right." Very helpful. Thank you.
+
+Let me show you what this looks like in practice.
+
+### The Timezone Assumption
+
+Here's a simplified version of what the agent built for the scheduling feature:
+
+```python
+def create_meeting(title: str, start_time: datetime, participants: list[str]):
+    meeting = Meeting.objects.create(
+        title=title,
+        start_time=start_time,  # Stored as UTC in the database
+        participants=participants,
+    )
+
+    for user_id in participants:
+        notify(user_id, {
+            "message": f"New meeting: {title}",
+            "time": format_time(meeting.start_time),  # Bug: uses server locale
+        })
+
+    return meeting
+
+def format_time(dt: datetime) -> str:
+    return dt.strftime("%-I:%M %p")  # Formats in server's local timezone
+```
+
+The `format_time` function calls `strftime` on a naive datetime without converting to the user's timezone first. The agent stored the time correctly in UTC but displays it in whatever timezone the server happens to be running in.
+
+Here's what the agent wrote for the test:
+
+```python
+def test_participants_receive_notification_with_correct_time():
+    meeting_time = datetime(2026, 3, 15, 14, 0, tzinfo=timezone.utc)
+
+    meeting = create_meeting(
+        "Sprint Planning",
+        meeting_time,
+        ["user-1", "user-2"],
+    )
+
+    notification = get_last_notification("user-1")
+    assert "Sprint Planning" in notification["message"]
+    assert notification["time"] == "2:00 PM"  # Passes on UTC server
+```
+
+The test creates a meeting at 2:00 PM UTC and verifies the notification says "2:00 PM." On a server running in UTC, this passes. On a server running in US Eastern time, it would fail. For a user in Tokyo, the meeting should display as 11:00 PM JST, but the test never checks that because the agent never considered that the display timezone could differ from the storage timezone.
+
+The test isn't lazy. It checks the notification content, the time format, the participant list. If you showed this test in a code review, nobody would blink. It just shares the same assumption as the code: that there's only one timezone that matters. Timezones, of course, being a famously simple problem that never causes issues.
+
+### The Auth Edge Case
+
+Here's one that's subtler. An agent implemented an authorization check for a content management system: users can only edit their own posts.
+
+```python
+def can_edit_post(user_id: str, post_id: str) -> bool:
+    post = Post.objects.filter(id=post_id).first()
+    if not post:
+        return False
+    return post.author_id == user_id
+```
+
+Simple, readable, correct for the obvious cases. Now here's the test suite the agent wrote:
+
+```python
+def test_author_can_edit_own_post():
+    post = create_post(author_id="alice")
+    assert can_edit_post("alice", post.id) is True
+
+def test_other_users_cannot_edit_post():
+    post = create_post(author_id="alice")
+    assert can_edit_post("bob", post.id) is False
+
+def test_returns_false_for_nonexistent_post():
+    assert can_edit_post("alice", "fake-id") is False
+```
+
+Three tests. Positive case, negative case, edge case. Looks solid. Coverage tool says `can_edit_post` is at 100%. Time to go home early.
+
+But nobody asked: what happens when Alice's account is soft-deleted? Her posts still exist in the database. `post.author_id` still equals `"alice"`. If Alice's account is deactivated, should she still be able to edit her posts? Should anyone? The answer depends on your product requirements, but the point is that neither the code nor the tests considered the question.
+
+The agent didn't think about soft deletes when writing the code, so it didn't think about soft deletes when writing the tests. The blind spot propagated perfectly. And that 100% coverage number? It measures which lines of code were executed, not which scenarios were considered. It's the testing equivalent of "we looked everywhere" when you only looked in the rooms with the lights on.
+
+### The Pagination Boundary
+
+One more. Cursor-based pagination where the last page has exactly `pageSize` items:
+
+```python
+def get_page(cursor: str | None = None, page_size: int = 20):
+    query = Item.objects.filter(id__gt=cursor) if cursor else Item.objects.all()
+    items = list(query.order_by("id")[:page_size + 1])
+
+    has_more = len(items) > page_size
+    return {
+        "items": items[:page_size],
+        "next_cursor": items[page_size - 1].id if has_more else None,  # Bug
+    }
+```
+
+The `next_cursor` should point to the *last item returned*, which is `items[page_size - 1]`. But when `has_more` is true, there are `page_size + 1` items in the list. The last item on the current page is at index `page_size - 1`, which is correct. Except that when you use this cursor for the next query, you're using `id__gt` (greater than), which means the next page starts *after* this item. That's fine when items have sequential IDs. It breaks when IDs have gaps, because the cursor might skip items.
+
+The test:
+
+```python
+def test_paginates_through_all_items():
+    create_items(50)  # Creates items with IDs 1-50
+
+    all_items = []
+    cursor = None
+
+    while True:
+        page = get_page(cursor)
+        all_items.extend(page["items"])
+        cursor = page["next_cursor"]
+        if cursor is None:
+            break
+
+    assert len(all_items) == 50
+```
+
+This test creates 50 items with sequential IDs and paginates through them. It passes, because sequential IDs with no gaps happen to work fine with the `id__gt` cursor approach. The test never creates a dataset where IDs have gaps, or where the total count is an exact multiple of the page size with non-sequential IDs, because the agent used the simplest possible test data setup. The test data was generated with the same assumptions as the code.
+
+### The Pattern
+
+These aren't three unrelated bugs. They're three instances of the same structural problem.
+
+In each case, the code made an assumption. The test made the same assumption. The assumption was invisible to both because it came from the same source: the model's interpretation of a requirement in a particular context. The timezone code assumed a single timezone. The auth code assumed active users. The pagination code assumed sequential IDs. And the tests, generated from the same understanding, encoded those same assumptions as "correct behavior."
+
+The tests look comprehensive. The coverage numbers look good. But the blind spots are perfectly aligned. Every bug that the code has, the tests have too. The test suite isn't a safety net. It's a mirror.
+
+## But Humans Do This Too
+
+I can already hear the reply guys warming up. "This isn't an AI problem. This is a testing problem. Humans do this all the time."
+
+And yeah, they're not wrong. The developer who misunderstands a requirement will write incorrect code and then write incorrect tests. Same brain, same blind spot. This is so well-known in testing literature that it's practically a proverb: don't let the person who wrote the code write the only tests. The principle of independent verification exists precisely because humans have been making this mistake for decades.
+
+So why is the AI version different? Because human blind spots are incidental. AI blind spots are systematic.
+
+When two human engineers misunderstand a requirement, they usually misunderstand it in different ways. One might miss the timezone edge case. The other might miss the soft-delete scenario. Their blind spots are uncorrelated, which means between the two of them, more of the requirement surface area gets covered. This is the entire theoretical basis for pair programming and independent code review. Different brains, different assumptions, better coverage. The system works, more or less, because humans are unreliable in usefully diverse ways.
+
+An AI model's blind spots are reproducible. Give the same model the same context and the same task, and it will make the same mistake every time. The failure isn't random. It's deterministic. Which means that if you use the same model to write both the code and the tests from the same context, you're not getting the benefit of independent verification. You're getting the same verification twice.
+
+Speed makes this worse. When a human writes tests by hand, the process is slow enough that it forces a kind of incidental reflection. Typing out test setup code, thinking about what values to use, deciding which scenarios to cover. That tedium creates tiny moments where the brain wanders and occasionally lands on "wait, what about...?" The speed of AI-generated tests eliminates those moments entirely. Twelve tests appear in seconds. You scan them, they look reasonable, you move on. The cognitive pause that sometimes catches mistakes never happens.
+
+Then there's the confidence problem. When a human writes a test they're uncertain about, you can usually tell. There's a `# TODO: verify this edge case` comment. There's a test name that hedges: `test_basic_auth_check`. There's hesitation in the coverage, obvious gaps where the developer knew they were cutting corners but at least had the decency to feel bad about it. AI-generated tests show none of these signals. A test that verifies the wrong behavior looks exactly as polished and confident as a test that verifies the right behavior. The formatting is perfect. The assertions are specific. The test names are descriptive. There's no way to distinguish false confidence from real confidence by looking at the output.
+
+Coverage compounds the problem. AI is extraordinarily good at generating tests that achieve high coverage numbers. It will methodically exercise every branch, every condition, every error path. And when someone asks "are we well-tested?" the answer looks like yes. Coverage is at 95%. The dashboard is green. Someone's OKR is being served. But coverage measures whether your tests executed the code, not whether they verified the right behavior. High coverage of incorrect behavior is worse than low coverage, because low coverage at least has the decency to make you nervous. High coverage makes you confident. And false confidence is the most dangerous state a team can be in.
+
+Finally, there's the scale effect. When an agent generates fifty tests in the time a human writes five, the review dynamics change. Five tests get read carefully. Fifty tests get skimmed. The sheer volume of output encourages a different kind of review: pattern-matching instead of deep reading, checking that the tests look right instead of verifying that they are right. The more tests there are, the less scrutiny each one gets, which is exactly the opposite of what you'd want when the tests themselves might be systematically wrong.
+
+None of this means AI-generated tests are useless. They catch real bugs constantly. But the failure mode is different from what we're used to, and most teams haven't adjusted for it. They're still treating green CI as gospel. Very comforting. Very dangerous.
+
+## Breaking the Correlation
+
+The fix isn't "humans must write all the tests." That ship sailed, hit an iceberg, and sank. Nobody's going back to hand-writing fifty pytest fixtures on a Tuesday afternoon. The fix is breaking the correlation between how the code was produced and how the tests were produced. The goal is to make sure that the tests can't possibly share the code's blind spots, because they were derived from a different source of truth.
+
+Here are the strategies that have actually worked for me.
+
+**Specification separation.** The most reliable approach. Write your test specifications from product requirements, user stories, or acceptance criteria. Not from the code. Not from the same prompt that generated the code. The test spec is an independent document, authored by someone (or something) that hasn't seen the implementation.
+
+The agent can translate that spec into executable test code. That's fine. The automation part is where AI shines. But the *specification* of what to test must come from a different source than the specification of what to build. If your test cases are derived from the code's behavior, they'll validate whatever the code does, including its bugs. If your test cases are derived from what the system *should* do, they'll catch the gap between intended and actual behavior.
+
+**Adversarial prompting.** Use a separate AI session, with different context, explicitly tasked with breaking the implementation. Don't give it the existing tests. Give it the requirements and the code, and tell it: "Your job is to find what's wrong with this."
+
+This works because different context produces different assumptions. The original session had the full history of building the feature, which anchored the model's understanding in a particular interpretation. A fresh session, given only the spec and the code, approaches it with no baggage. It's like getting a second opinion from a doctor who hasn't read the first doctor's notes. It's not a guarantee, but it decorrelates the failure modes significantly. I've had adversarial sessions find bugs in the first ten minutes that the original session's tests had been silently confirming for days.
+
+**Human-authored test cases, AI-authored test code.** Humans write test scenarios in plain language. Given a user in the Tokyo timezone, when they create a meeting at 2 PM their time, then the notification should show 2 PM JST. The human decides *what* to test. The AI handles *how* to automate it.
+
+This is the approach I've settled into for anything that matters. It takes maybe ten minutes to write a dozen test cases in plain English. Then the agent translates them into executable pytest tests in seconds. The human owns the "what should correct behavior look like?" question. The AI handles the boilerplate. You get the productivity benefit of AI-generated tests without the correlated blind spot risk.
+
+**Property-based testing.** Define invariants that must hold regardless of implementation details. "Pagination should return every item exactly once, regardless of page size." "No user should ever see another user's private data." "Displayed times should match the user's configured timezone."
+
+Properties test correctness at a higher level than specific test cases. They're harder for correlated failures to evade because they don't encode specific assumptions about how the code works. A property like "every item appears exactly once across all pages" would have caught the pagination bug immediately, regardless of what test data was used, because it tests the *invariant* rather than a specific scenario.
+
+**The "confused user" heuristic.** When you write test scenarios, think about real users doing messy things. What does a user with their timezone set to UTC-12 do? What does a user who bookmarks a URL they shouldn't have access to do? What does a user who soft-deletes their account and then tries to undo it do?
+
+These scenarios break AI assumptions because they're grounded in the chaotic, mildly unhinged reality of how people actually use software. AI models tend to test clean, logical paths because that's what's represented in their training data. Real users don't follow clean, logical paths. Real users do things that would make you question their intentions. Testing from the perspective of confused, impatient, or adversarial users surfaces bugs that neither the code's author nor a test suite built from the code's context would think to check.
+
+## Where Humans Must Stay
+
+I'm not arguing that humans need to write tests. Nobody misses writing test boilerplate. Nobody lies awake at night longing for the good old days of manually constructing mock objects. Let the machines have that one.
+
+But humans must own the specification of correct behavior. They must be the ones who decide what the system *should* do, as distinct from what it *currently does*. That distinction is the entire point of testing, and it's the part that breaks down when the same AI writes both sides.
+
+The human role in testing shifts from writing code to asking questions. *What scenarios matter?* *What could go wrong that we haven't thought of?* *Does this test suite reflect how real users behave, or just how a developer imagines they behave?* *If I read only these tests and had never seen the code, would I understand what the system is supposed to do?*
+
+These are judgment calls. They require understanding the product, the users, and the business context in a way that an AI model working from a prompt simply doesn't have. The agent knows what you told it. It doesn't know what you forgot to tell it. And it will never raise its hand and say "hey, did you consider...?" It will just build exactly what you described, test exactly what you described, and report success. Impeccable execution of an incomplete thought.
+
+This connects to something I keep coming back to in everything I write about AI and engineering. The bottleneck moved from execution to judgment. In testing, execution is "write and run the tests." Judgment is "decide what correct behavior looks like." AI is excellent at execution. Humans must own judgment.
+
+If a human had written the test specification for that meeting scheduler from the product requirements, not from the code, the timezone bug would have been caught before it shipped. Not because the human is smarter than the AI. Because the human was working from a different source of truth.
+
+## The Audit You're Not Running
+
+Go look at your test suite right now. Not tomorrow. Not after the sprint. Right now. Open your test directory and look at the most recently written tests.
+
+Ask yourself three questions.
+
+Did the same AI that wrote the code write these tests? If yes, you have a correlated test suite. The tests might be correct. But you have no independent verification that they are.
+
+Were the tests derived from the code's behavior, or from an independent specification of correct behavior? Look at the test cases. Do they test what the system *should* do according to the product requirements? Or do they test what the system *does* according to the implementation? If you can't tell the difference, that's the problem.
+
+If you removed the code entirely and read only the tests, would you know what the system is supposed to do? Or would you only know what it currently does?
+
+If your tests describe implementation rather than intent, they're not tests. They're mirrors. And mirrors don't catch bugs. They reflect them back at you, green and passing.
